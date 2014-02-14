@@ -1,0 +1,23 @@
+footer {
+	width:100%;
+	position:fixed;
+	bottom:0;
+	background-color:@sweelix-accent-color;
+	z-index:5;
+	.inner-box-shadow(0, @sweelix-blur-width, @sweelix-blur-width, (-1 * @sweelix-blur-width), @sweelix-neutral-darkest-color);
+	div.bottom-bar {
+		color:@sweelix-light-text-color;
+		height:(@sweelix-small-font-size * 3);
+		font-size:@sweelix-small-font-size;
+		padding:(@sweelix-small-font-size * 3) 5% 0 5%;
+		text-align:right;
+		a {
+			color:@sweelix-light-text-color;
+			text-decoration:none;
+			&:hover {
+				color:@sweelix-neutral-dark-color;
+				text-decoration:none;
+			}
+		}
+	}
+}

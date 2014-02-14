@@ -1,0 +1,106 @@
+#notice-wrapper {
+	position:fixed;
+	top:@sweelix-spacing;
+	right:@sweelix-spacing;
+	width:@sweelix-gritter-width;
+	z-index:99999;
+	.notice-item {
+		position:relative;
+		.rounded-corners(5px);
+		background-color:@sweelix-neutral-lightest-color;
+		background-color:rgba(red(@sweelix-neutral-lightest-color), green(@sweelix-neutral-lightest-color), blue(@sweelix-neutral-lightest-color), @sweelix-transparency);
+		border:1px solid @sweelix-neutral-dark-color;
+		color:@sweelix-dark-text-color;
+		.box-shadow(0, 0, (@sweelix-spacing / 2), @sweelix-neutral-shadow-color);
+		font-size:@sweelix-small-font-size;
+		margin:@sweelix-spacing;
+		padding:@sweelix-spacing;
+		a {
+			color:@sweelix-dark-text-color;
+			text-decoration:none;
+			&:hover {
+				color:@sweelix-neutral-light-color;
+			}
+		}
+		span.title {
+			font-size:@sweelix-medium-font-size;
+		}
+		p {
+			margin:0;
+			padding:0;
+			margin-top:@sweelix-spacing;
+		}
+		&.danger {
+			background-color:@sweelix-danger-darker-color;
+			background-color:rgba(red(@sweelix-danger-darker-color), green(@sweelix-danger-darker-color), blue(@sweelix-danger-darker-color), @sweelix-transparency);
+			border:1px solid @sweelix-danger-dark-color;
+			color:@sweelix-light-text-color;
+			.box-shadow(0, 0, (@sweelix-spacing / 2), @sweelix-danger-shadow-color);
+			a {
+				color:@sweelix-light-text-color;
+				&:hover {
+					color:@sweelix-danger-lighter-color;
+				}
+			}
+		}
+		&.warning {
+			background-color:@sweelix-warning-darker-color;
+			background-color:rgba(red(@sweelix-warning-darker-color), green(@sweelix-warning-darker-color), blue(@sweelix-warning-darker-color), @sweelix-transparency);
+			border:1px solid @sweelix-warning-dark-color;
+			color:@sweelix-light-text-color;
+			.box-shadow(0, 0, (@sweelix-spacing / 2), @sweelix-warning-shadow-color);
+			a {
+				color:@sweelix-light-text-color;
+				&:hover {
+					color:@sweelix-warning-lighter-color;
+				}
+			}
+		}
+		&.info {
+			background-color:@sweelix-info-darker-color;
+			background-color:rgba(red(@sweelix-info-darker-color), green(@sweelix-info-darker-color), blue(@sweelix-info-darker-color), @sweelix-transparency);
+			border:1px solid @sweelix-info-dark-color;
+			color:@sweelix-light-text-color;
+			.box-shadow(0, 0, (@sweelix-spacing / 2), @sweelix-info-shadow-color);
+			a {
+				color:@sweelix-light-text-color;
+				&:hover {
+					color:@sweelix-info-lighter-color;
+				}
+			}
+		}
+		&.success {
+			background-color:@sweelix-success-darker-color;
+			background-color:rgba(red(@sweelix-success-darker-color), green(@sweelix-success-darker-color), blue(@sweelix-success-darker-color), @sweelix-transparency);
+			border:1px solid @sweelix-success-dark-color;
+			color:@sweelix-light-text-color;
+			.box-shadow(0, 0, (@sweelix-spacing / 2), @sweelix-success-shadow-color);
+			a {
+				color:@sweelix-light-text-color;
+				&:hover {
+					color:@sweelix-success-darker-color;
+				}
+			}
+		}
+		&.inverse {
+			background-color:@sweelix-neutral-darkest-color;
+			background-color:rgba(red(@sweelix-neutral-darkest-color), green(@sweelix-neutral-darkest-color), blue(@sweelix-neutral-darkest-color), @sweelix-transparency);
+			border:1px solid @sweelix-neutral-light-color;
+			color:@sweelix-light-text-color;
+			.box-shadow(0, 0, (@sweelix-spacing / 2), @sweelix-neutral-shadow-color);
+			a {
+				color:@sweelix-light-text-color;
+				text-decoration:none;
+				&:hover {
+					color:@sweelix-neutral-dark-color;
+				}
+			}
+		}
+		.close {
+			position:absolute;
+			cursor:pointer;
+			top:@sweelix-spacing;
+			right:@sweelix-spacing;
+		}
+	}	
+}

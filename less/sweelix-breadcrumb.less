@@ -1,0 +1,36 @@
+
+section#main aside {
+	position:absolute;
+	top:22px;
+	left:0;
+	width:100%;
+	min-width:@sweelix-minimal-width;
+	padding:0;
+	background-color:@sweelix-accent-color;
+	z-index:1;
+	ul {
+		margin-left:@sweelix-nav-width + (4 * @sweelix-spacing);
+		list-style-type:none;
+		line-height:(@sweelix-medium-font-size * 3);
+		height:(@sweelix-medium-font-size * 3);
+		li {
+			float:left;
+			line-height:(@sweelix-medium-font-size * 3);
+			height:(@sweelix-medium-font-size * 3);
+			margin:0 0 0 (@sweelix-medium-font-size / 2);
+			font-size:@sweelix-medium-font-size;
+			color:@sweelix-light-text-color;
+			a {
+				font-size:@sweelix-medium-font-size;
+				color:@sweelix-light-text-color;
+				text-decoration:none;
+				&:hover {
+					text-decoration:underline;
+				}
+			}
+			&:first-child {
+				margin:0;
+			}
+		}
+	}
+}

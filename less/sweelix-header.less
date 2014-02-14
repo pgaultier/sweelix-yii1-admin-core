@@ -1,0 +1,73 @@
+header {
+	width:100%;
+	position:fixed;
+	top:0;
+	z-index:5;
+	background-color:@sweelix-accent-color;
+	div.top-bar {
+		color:@sweelix-light-text-color;
+		background-color:@sweelix-accent-color;
+		height:(@sweelix-small-font-size * 2);
+		line-height:(@sweelix-small-font-size * 2);
+		font-size:@sweelix-small-font-size;
+		padding:0 10px;
+		min-width:@sweelix-minimal-width;
+		&.login {
+			.box-shadow(0, 0, @sweelix-blur-width, @sweelix-neutral-shadow-color);
+		}
+		a {
+			color:@sweelix-light-text-color;
+			text-decoration:none;
+			&:hover { 
+				color:@sweelix-neutral-dark-color;
+				text-decoration:none;
+			}
+		}
+	}
+	ul {
+		list-style-type:none;
+		border-top:1px solid @sweelix-neutral-light-color;
+		border-bottom:1px solid @sweelix-neutral-dark-color;
+		min-width:@sweelix-minimal-width;
+		line-height:(@sweelix-medium-font-size * 3);
+		height:(@sweelix-medium-font-size * 3);
+		margin:0;
+		padding:0;
+		background-color:@sweelix-neutral-color;
+		.basic-linear-gradient(top, @sweelix-neutral-dark-color, @sweelix-neutral-light-color);
+		.box-shadow(0, 0, @sweelix-blur-width, @sweelix-neutral-shadow-color);
+		li {
+			float: left;
+			border-top:1px solid @sweelix-neutral-light-color;
+			border-right:1px solid @sweelix-neutral-dark-color;
+			border-bottom:1px solid @sweelix-neutral-dark-color;
+			border-left:1px solid @sweelix-neutral-light-color;
+			line-height:(@sweelix-medium-font-size * 3);
+			height:(@sweelix-medium-font-size * 3);
+			font-size:@sweelix-medium-font-size;
+			padding: 0 @sweelix-medium-font-size;
+			margin-top:-1px;
+			&:first-child {
+				border-left:0;
+			}
+			&:hover {
+				background-color:@sweelix-neutral-light-color;
+				.highlight-gradient(@sweelix-neutral-light-color, @sweelix-neutral-color, @sweelix-neutral-dark-color);
+			}
+			&.active {
+				background-color:@sweelix-accent-color;
+				.highlight-gradient(@sweelix-accent-light-color, @sweelix-accent-color, @sweelix-accent-dark-color);
+				border-top:1px solid @sweelix-accent-color;
+				border-bottom:1px solid @sweelix-accent-dark-color;
+				a {
+					color:@sweelix-light-text-color;
+				}
+			}
+			a {
+				color:@sweelix-dark-text-color;
+				text-transform:uppercase;
+				text-decoration:none;
+			}
+		}
+	}
+}			

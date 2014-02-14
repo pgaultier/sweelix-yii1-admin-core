@@ -1,0 +1,140 @@
+// define border-radius
+.rounded-top-left-corners (@radius: 3px) {
+  -webkit-border-top-left-radius: @radius;
+  -moz-border-radius-top-left: @radius;
+  -ms-border-top-left-radius: @radius;
+  -o-border-top-left-radius: @radius;
+  border-top-left-radius: @radius;
+}
+.rounded-top-right-corners (@radius: 3px) {
+  -webkit-border-top-right-radius: @radius;
+  -moz-border-radius-top-right: @radius;
+  -ms-border-top-right-radius: @radius;
+  -o-border-top-right-radius: @radius;
+  border-top-right-radius: @radius;
+}
+.rounded-bottom-left-corners (@radius: 3px) {
+  -webkit-border-bottom-left-radius: @radius;
+  -moz-border-radius-bottom-left: @radius;
+  -ms-border-bottom-left-radius: @radius;
+  -o-border-bottom-left-radius: @radius;
+  border-bottom-left-radius: @radius;
+}
+.rounded-bottom-right-corners (@radius: 3px) {
+  -webkit-border-bottom-right-radius: @radius;
+  -moz-border-radius-bottom-right: @radius;
+  -ms-border-bottom-right-radius: @radius;
+  -o-border-bottom-right-radius: @radius;
+  border-bottom-right-radius: @radius;
+}
+.rounded-corners (@radius: 3px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+// define basic gradient
+.basic-linear-gradient(@start, @start-color, @end-color) {
+	// -ms-filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start-color}', endColorstr='@{end-color}', GradientType=0)";
+	background-image: -webkit-linear-gradient(@start, @start-color 0%, @end-color 100%);
+	background-image: -moz-linear-gradient(@start, @start-color 0%, @end-color 100%);
+	background-image: -ms-linear-gradient(@start, @start-color 0%, @end-color 100%);
+	background-image: -o-linear-gradient(@start, @start-color 0%, @end-color 100%);
+	background-image: linear-gradient(@start, @start-color 0%, @end-color 100%);
+}
+.field-linear-gradient(@start-color, @end-color) {
+	background-image: -webkit-linear-gradient(top, @start-color 0%, @end-color 4px, @end-color 100%);
+	background-image: -moz-linear-gradient(top, @start-color 0%, @end-color 4px, @end-color 100%);
+	background-image: -ms-linear-gradient(top, @start-color 0%, @end-color 4px, @end-color 100%);
+	background-image: -o-linear-gradient(top, @start-color 0%, @end-color 4px, @end-color 100%);
+	background-image: linear-gradient(top, @start-color 0%, @end-color 4px, @end-color 100%);
+}
+.highlight-gradient(@start-color, @base-color, @end-color) {
+	// -ms-filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start-color}', endColorstr='@{end-color}', GradientType=0)";
+	background-image: -webkit-linear-gradient(top, @start-color 0%, @base-color 50%, @end-color 100%);
+	background-image: -moz-linear-gradient(top, @start-color 0%, @base-color 50%, @end-color 100%);
+	background-image: -ms-linear-gradient(top, @start-color 0%, @base-color 50%, @end-color 100%);
+	background-image: -o-linear-gradient(top, @start-color 0%, @base-color 50%, @end-color 100%);
+	background-image: linear-gradient(top, @start-color 0%, @base-color 50%, @end-color 100%);
+}
+.box-shadow(@x: 0, @y: 0, @blur: 1px, @color: #666) {
+	-webkit-box-shadow: @arguments;	
+	-moz-box-shadow: @arguments;
+	-ms-box-shadow: @arguments;
+	-o-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+.inner-box-shadow(@x: 0, @y: 0, @blur: 1px, @color: #666) {
+	-webkit-box-shadow: inset @arguments;	
+	-moz-box-shadow: inset @arguments;
+	-ms-box-shadow: inset @arguments;
+	-o-box-shadow: inset @arguments;
+	box-shadow: inset @arguments;
+}
+.inner-box-shadow(@x: 0, @y: 0, @blur: 1px, @spread:0, @color: #666) {
+	-webkit-box-shadow: inset @arguments;	
+	-moz-box-shadow: inset @arguments;
+	-ms-box-shadow: inset @arguments;
+	-o-box-shadow: inset @arguments;
+	box-shadow: inset @arguments;
+}
+
+// .colorise-button(@sweelix-light-text-color, @sweelix-danger-text-color, @sweelix-danger-light-color, @sweelix-danger-darker-color, @sweelix-medium-font-size, @sweelix-blur-width)
+.colorise-button(@text-color, @dark-text-color, @light-color, @dark-color, @shadow-color, @padding, @blur) {
+	color:@text-color;
+	background-color:@dark-color;
+	.basic-linear-gradient(top, @light-color, @dark-color);
+	border:1px solid @dark-color;
+	&:hover, &:active {
+		.box-shadow(0,0, @blur, @shadow-color);
+		color:@dark-text-color;
+		background-color:@light-color;
+		padding:@padding;
+		background-image:none;
+	}
+	&:active {
+		.inner-box-shadow(0,0, @blur, @shadow-color);
+	} 
+}
+
+// .colorise-field(@sweelix-error, @sweelix-error, @sweelix-light-error)
+.colorise-field(@text-color, @border-color, @dark-color, @light-color) {
+	background-color:@dark-color;
+	border-color:@border-color;
+	color:@text-color;
+	&:focus {
+		background-color:@light-color;
+	}
+	&:-moz-placeholder {
+		color:@text-color;
+	}
+	&::-webkit-input-placeholder {
+		color:@text-color;
+	}
+	
+}
+
+// define sprite accessor
+.medium-icon(@col, @row, @size, @spacing, @hover-space) {
+	@posx:(((@size + @spacing) * @col * 2) * -1);
+	@posy:(((@size + @spacing) * @row) * -1);
+	background-position:  @posx @posy;
+	&.hovering:hover, &.inverse {
+		background-position: @posx (@posy - @hover-space - @spacing);
+	}
+	&.hovering.inverse:hover {
+		background-position:  @posx @posy;
+	}
+	&.light {
+		background-position: (@posx - (@size + @spacing)) @posy;
+		&.hovering:hover, &.inverse {
+			background-position: (@posx - (@size + @spacing)) (@posy - @hover-space - @spacing);
+		}
+		&.hovering.inverse:hover {
+			background-position: (@posx - (@size + @spacing)) @posy;
+		}
+	}
+}
+

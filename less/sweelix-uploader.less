@@ -1,0 +1,69 @@
+.dropZone {
+	display:none;
+	font-size:@sweelix-medium-font-size;
+	border:1px solid @sweelix-neutral-dark-color;
+	.rounded-corners(5px);
+	background-color:@sweelix-neutral-lightest-color;
+	margin:(@sweelix-form-element-margin * 2) 0;
+	padding:(@sweelix-form-element-padding * 2) 0;
+	text-align:center;
+	width:((((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+	&.hover {
+		color:@sweelix-light-text-color;
+		background-color:@sweelix-accent-color;
+		.highlight-gradient(@sweelix-accent-light-color, @sweelix-accent-color, @sweelix-accent-dark-color)
+	}
+}
+ul.filesContainer {
+	list-style-type : none;
+	font-size:@sweelix-small-font-size;
+	li.fileContainer {
+		display:inline-block;
+		position:relative;
+		border:1px solid @sweelix-neutral-dark-color;
+		.rounded-corners(5px);
+		background-color:@sweelix-neutral-light-color;
+		margin: @sweelix-form-element-padding @sweelix-form-element-padding @sweelix-form-element-margin @sweelix-form-element-margin;
+		text-align:center;
+		vertical-align:top;
+		padding:@sweelix-form-element-margin;
+		a.close {
+		    display: block;
+			border: 1px solid @sweelix-danger-dark-color;
+			position:absolute;
+		    right: (-1 * @sweelix-spacing);
+		    top: (-1 * @sweelix-spacing);
+		    width: @sweelix-medium-font-size;	
+			height: @sweelix-medium-font-size;
+		    text-align: center;
+		    padding: @sweelix-form-element-margin;
+			background-color:@sweelix-neutral-lightest-color;
+		    .rounded-corners(5px);
+			text-decoration:none;
+			span {
+				color:@sweelix-danger-text-color;
+			}
+			&:hover {
+				span {
+					color:@sweelix-light-text-color;
+				}
+				background-color:@sweelix-danger-darker-color;
+			}
+		}
+		span {
+			font-size:@sweelix-small-font-size;
+		}
+		.progressBar {
+			background-color:@sweelix-neutral-dark-color;
+			margin:@sweelix-form-element-margin 0px;
+			height:(@sweelix-form-element-margin / 2);
+		}
+		.progress {
+			height:(@sweelix-form-element-margin / 2);
+			background-color:@sweelix-accent-color;
+			width:0%;
+		}
+		
+	}
+}
+

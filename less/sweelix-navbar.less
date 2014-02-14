@@ -1,0 +1,68 @@
+section#main nav {
+	position:relative;
+	display:table-cell;
+	width: @sweelix-nav-width;
+	min-width: @sweelix-nav-width;
+	background-color: @sweelix-neutral-light-color;
+	vertical-align:top;
+	z-index:2;
+	padding-bottom:(2 * @sweelix-spacing);
+//	form {
+//		border: 0;
+//		margin:(@sweelix-medium-font-size + @sweelix-spacing) (@sweelix-medium-font-size * 2);
+//		input[type=text] {
+//			width:(@sweelix-nav-width /2);
+//			margin-right:0;
+//			.rounded-bottom-right-corners (0);
+//			.rounded-top-right-corners (0);
+//		}
+//		button {
+//			.rounded-bottom-left-corners (0);
+//			.rounded-top-left-corners (0);
+//			padding:@sweelix-medium-button-padding;
+//			margin:0;
+//			margin-left:-5px;
+//			border:1px solid @sweelix-neutral-dark-color;
+//		}
+//	}
+	ul.shortcuts {
+		list-style-type:none;
+		padding-left:0px;
+		margin:16px 0;
+		li {
+			background-color:@sweelix-accent-color;
+			.highlight-gradient(@sweelix-accent-light-color, @sweelix-accent-color, @sweelix-accent-dark-color);
+			border-top:1px solid @sweelix-accent-lighter-color;
+			border-bottom:1px solid @sweelix-accent-dark-color;
+			a {
+				border-top:1px solid @sweelix-neutral-lighter-color;
+				border-right:0;
+				border-bottom:1px solid @sweelix-neutral-dark-color;
+				border-left:0;
+				display:block;
+				background-color:@sweelix-neutral-color;
+				.basic-linear-gradient(top, @sweelix-neutral-dark-color, @sweelix-neutral-light-color);
+				color:@sweelix-dark-text-color;
+				line-height:(@sweelix-medium-font-size * 3);
+				height:(@sweelix-medium-font-size * 3);
+				text-transform:uppercase;
+				text-decoration:none;
+				margin:-1px 0 -1px 10px;
+				padding-left:10px; 
+				font-size:@sweelix-medium-font-size;
+			}
+			&:hover a {
+				background-color:@sweelix-neutral-light-color;
+				.highlight-gradient(@sweelix-neutral-light-color, @sweelix-neutral-color, @sweelix-neutral-dark-color);
+				color:@sweelix-dark-text-color;
+			}
+			&.active a, a:active {
+				background-color:@sweelix-accent-color;
+				.highlight-gradient(@sweelix-accent-light-color, @sweelix-accent-color, @sweelix-accent-dark-color);
+				border-top:1px solid @sweelix-accent-lighter-color;
+				border-bottom:1px solid @sweelix-accent-light-color;
+				color:@sweelix-light-text-color;
+			}
+		}
+	}
+}

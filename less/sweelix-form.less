@@ -1,0 +1,174 @@
+form {
+	border:0px;
+	.login & {
+		width:(@sweelix-form-element-width * 20);
+		margin:(@sweelix-form-element-padding * 10) auto;
+	}
+	
+	fieldset {
+		legend {
+			color:@sweelix-dark-text-color;
+		}
+		border:1px solid @sweelix-neutral-light-color;
+		padding:(@sweelix-medium-font-size *2);
+		.rounded-corners (3px); 
+	} 
+	h3 {
+		color:@sweelix-dark-text-color;
+		font-size:(2* @sweelix-small-font-size);
+		border-bottom:1px solid @sweelix-neutral-dark-color;
+	}
+	label, span { 
+		color:@sweelix-dark-text-color;
+		font-size:@sweelix-medium-font-size;
+		&.error {
+			color:@sweelix-danger-color;
+		}
+		&.info {
+			color:@sweelix-info-color;
+		}
+		&.warning {
+			color:@sweelix-warning-color;
+		}
+		&.success {
+			color:@sweelix-success-color;
+		}  
+		&.fixed {
+			display:inline-block;
+			width:((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4));
+			&.small {
+				width:@sweelix-form-element-width;
+			}
+			&.medium {
+				width:((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+			}
+			&.classic {
+				width:((((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+			}
+			&.large {
+				width:((((((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+			}			
+			
+		}
+	}
+	input[type=submit], input[type=reset], input[type=button], button {
+		display:inline-block;
+		position:relative;
+		.rounded-corners (3px);
+	    -moz-box-sizing: content-box;
+	    -webkit-box-sizing: content-box;			
+		box-sizing: content-box;
+		cursor:pointer;
+		width:((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)); 
+		overflow:hidden;
+		font-size:@sweelix-small-font-size; 
+		height:(@sweelix-small-font-size + @sweelix-form-element-margin);  
+		line-height:(@sweelix-small-font-size + @sweelix-form-element-margin);
+		text-transform:uppercase;
+		background-color:@sweelix-neutral-light-color;
+		border:1px solid @sweelix-neutral-darker-color;
+		padding:(@sweelix-form-element-padding);
+		margin:@sweelix-form-element-margin;
+		color:@sweelix-dark-text-color;
+		.basic-linear-gradient(top, @sweelix-neutral-light-color, @sweelix-neutral-dark-color);
+		&:hover, &:active {
+			.box-shadow(0,0, @sweelix-blur-width, @sweelix-neutral-shadow-color);
+			background-image:none;
+		} 
+		&:active {
+			.inner-box-shadow(0,0, @sweelix-blur-width, @sweelix-neutral-shadow-color);
+		} 
+		&.small {
+			width:@sweelix-form-element-width;
+		}
+		&.medium {
+			width:((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+		}
+		&.classic {
+			width:((((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+		}
+		&.large {
+			width:((((((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+		}
+		&.danger {
+			.colorise-button(@sweelix-light-text-color, @sweelix-danger-text-color, @sweelix-danger-light-color, @sweelix-danger-darker-color, @sweelix-danger-shadow-color, @sweelix-form-element-padding, @sweelix-blur-width);
+		}
+		&.warning {
+			.colorise-button(@sweelix-light-text-color, @sweelix-warning-text-color, @sweelix-warning-light-color, @sweelix-warning-darker-color, @sweelix-warning-shadow-color, @sweelix-form-element-padding, @sweelix-blur-width);
+		}
+		&.info {
+			.colorise-button(@sweelix-light-text-color, @sweelix-info-text-color, @sweelix-info-light-color, @sweelix-info-darker-color, @sweelix-info-shadow-color, @sweelix-form-element-padding, @sweelix-blur-width);
+		}
+		&.success { 
+			.colorise-button(@sweelix-light-text-color, @sweelix-success-text-color, @sweelix-success-light-color, @sweelix-success-darker-color, @sweelix-success-shadow-color, @sweelix-form-element-padding, @sweelix-blur-width);
+		}
+		&.inverse {
+			.colorise-button(@sweelix-light-text-color, @sweelix-inverse-text-color, @sweelix-inverse-light-color, @sweelix-inverse-darker-color, @sweelix-inverse-shadow-color, @sweelix-form-element-padding, @sweelix-blur-width);
+		}
+		span {
+			font-size:@sweelix-small-font-size; 
+		}
+	}
+	input[type=radio], input[type=checkbox] {
+		width:@sweelix-form-mini-element-width;
+		padding:@sweelix-form-element-padding;
+		margin:@sweelix-form-element-margin;
+	}
+	input[type=text], input[type=password], input[type=email], textarea, select {
+		width:((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4));
+		.rounded-corners (2px);
+		color:@sweelix-dark-text-color;
+		padding:@sweelix-form-element-padding;
+		padding-bottom:(@sweelix-form-element-padding + 1);
+		margin:@sweelix-form-element-margin;
+		border:1px solid @sweelix-neutral-dark-color;
+		background-color:@sweelix-neutral-lighter-color;
+		font-size:@sweelix-small-font-size;
+		&.small {
+			width:@sweelix-form-element-width;
+		}
+		&.medium {
+			width:((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+		}
+		&.classic {
+			width:((((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+		}
+		&.large {
+			width:((((((((@sweelix-form-element-width * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4)) * 2) + (@sweelix-form-element-padding * 4));
+		}
+		&:-moz-placeholder {  
+			color:@sweelix-dark-text-color;
+		}
+		&::-webkit-input-placeholder {
+			color:@sweelix-dark-text-color;
+		}
+		&:focus {
+			background-color:@sweelix-neutral-lightest-color;
+			outline: none;
+		}
+		&.error, &.danger {
+			.colorise-field(@sweelix-danger-text-color, @sweelix-danger-darker-color, @sweelix-danger-lighter-color, @sweelix-neutral-lightest-color);
+		}
+		&.warning {
+			.colorise-field(@sweelix-warning-text-color, @sweelix-warning-darker-color, @sweelix-warning-lighter-color, @sweelix-neutral-lightest-color);
+		}
+		&.info {
+			.colorise-field(@sweelix-info-text-color, @sweelix-info-darker-color, @sweelix-info-lighter-color, @sweelix-neutral-lightest-color);
+		}
+		&.success {
+			.colorise-field(@sweelix-success-text-color, @sweelix-success-darker-color, @sweelix-success-lighter-color, @sweelix-neutral-lightest-color);
+		}
+		&::-moz-focus-inner {
+			border:0;
+			padding:0;
+			margin:0;
+		}
+	}
+	select {
+		-webkit-appearance: none;
+		padding-top:4px;
+		padding-bottom:4px;
+		margin-top:(@sweelix-form-element-margin + @sweelix-form-element-padding - 4);
+		margin-bottom:(@sweelix-form-element-margin + @sweelix-form-element-padding - 4);
+	}
+}
