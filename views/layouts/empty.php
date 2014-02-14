@@ -1,16 +1,16 @@
 <?php
 /**
- * File main.php
+ * File empty.php
  *
- * PHP version 5.2+
+ * PHP version 5.4+
  *
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
- * @copyright 2010-2013 Sweelix
+ * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  views
- * @package   sweeft.views.layouts
+ * @package   sweelix.yii1.admin.views.layouts
  */
 
 ?><!DOCTYPE html>
