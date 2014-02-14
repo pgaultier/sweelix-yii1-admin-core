@@ -15,7 +15,7 @@
 
 namespace sweelix\yii1\admin\base\controllers;
 use sweelix\yii1\admin\base\web\Controller;
-use sweelix\yii1\ext\entities\Author;
+use sweelix\yii1\admin\base\models\Author;
 
 /**
  * Class AuthenticationController

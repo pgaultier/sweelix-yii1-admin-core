@@ -44,6 +44,10 @@ class Module extends \CWebModule {
 	 **/
 	public $sessionLifetime = 3600;
 	/**
+	 * @var string controllers namespace
+	 */
+	public $controllerNamespace = 'sweelix\yii1\admin\base\controllers';
+	/**
 	 * Init the module with specific information.
 	 * @see CModule::init()
 	 *
