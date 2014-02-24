@@ -86,6 +86,7 @@ class Module extends \CWebModule {
 			'messages' => array(
 				'class' => 'sweelix\yii1\admin\core\components\GettextMessageSource',
 				'basePath' => __DIR__.DIRECTORY_SEPARATOR.'messages',
+				'forceTranslation' => true,
 			),
 			'session' => $sessionSetUp,
 			'urlManager' => array(
