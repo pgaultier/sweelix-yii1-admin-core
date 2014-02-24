@@ -69,14 +69,14 @@ $currentModule = Yii::app()->getController()->getModule();
 	</head>
 	<body>
 		<header>
-			<?php $this->beginWidget('sweeft.widgets.HeaderWidget'); ?>
+			<?php $this->beginWidget('sweelix\yii1\admin\core\widgets\Header'); ?>
 			<div class="top-bar">
 				<span class="text">
 					Sweelix
 				</span>
 			</div>
 			<?php $this->endWidget(); ?>
-			<?php $this->widget('sweeft.widgets.MainMenuWidget'); ?>
+			<?php $this->widget('sweelix\yii1\admin\core\widgets\MainMenu'); ?>
 		</header>
 		<section id="main">
 		<?php echo $content; ?>
