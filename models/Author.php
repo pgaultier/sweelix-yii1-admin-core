@@ -15,7 +15,7 @@
 
 namespace sweelix\yii1\admin\core\models;
 use sweelix\yii1\ext\entities\Author as EntityAuthor;
-use sweelix\yii1\admin\base\components\UserIdentity;
+use sweelix\yii1\admin\core\components\UserIdentity;
 
 /**
  * Class Author
