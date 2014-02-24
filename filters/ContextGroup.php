@@ -1,6 +1,6 @@
 <?php
 /**
- * File ContextTagFilter.php
+ * File ContextGroup.php
  *
  * PHP version 5.4+
  *
@@ -14,12 +14,12 @@
  */
 
 namespace sweelix\yii1\admin\base\filters;
-use sweelix\yii1\ext\entities\Tag;
+use sweelix\yii1\ext\entities\Group;
 
 /**
- * Class ContextTagFilter
+ * Class ContextGroup
  *
- * This component filters requests to ensure tagId is valid and correctly set.
+ * This component filters requests to ensure groupId is valid and correctly set.
  *
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
@@ -29,7 +29,7 @@ use sweelix\yii1\ext\entities\Tag;
  * @category  filters
  * @package   sweelix.yii1.admin.base.filters
  */
-class ContextTagFilter extends \CFilter {
+class ContextGroup extends \CFilter {
 
 	/**
 	 * Check if current groupId is passed to the application
@@ -41,14 +41,16 @@ class ContextTagFilter extends \CFilter {
 	 */
 	protected function preFilter($filterChain) {
 		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.filters');
-		$tag = Tag::model()->findByPk(\Yii::app()->request->getParam('tagId', 0));
-		if($tag === null) {
-			throw new \CHttpException(404,
-				\Yii::t('sweelix', 'Tag {tagId} does not exists',
-					array( '{tagId}'=>\Yii::app()->request->getParam('tagId', 0)))
-				);
+		$group = Group::model()->findByPk(\Yii::app()->request->getParam('groupId', 0));
+		if($group === null) {
+			$group = Group::model()->find(array('order' => 'groupId asc'));
+			$targetRequest = $_GET;
+			$targetRequest['groupId'] = $group->groupId;
+			array_unshift($targetRequest, $filterChain->controller->action->id);
+			$filterChain->controller->redirect( $targetRequest );
+			return false;
 		} else {
-			$filterChain->controller->setCurrentTag($tag);
+			$filterChain->controller->setCurrentGroup($group);
 	        // logic being applied before the action is executed
     	    return true;
 		}

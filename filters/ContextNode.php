@@ -1,6 +1,6 @@
 <?php
 /**
- * File ContextGroupFilter.php
+ * File ContextNode.php
  *
  * PHP version 5.4+
  *
@@ -14,12 +14,12 @@
  */
 
 namespace sweelix\yii1\admin\base\filters;
-use sweelix\yii1\ext\entities\Group;
+use sweelix\yii1\ext\entities\Node;
 
 /**
- * Class ContextGroupFilter
+ * Class ContextNode
  *
- * This component filters requests to ensure groupId is valid and correctly set.
+ * This component filters requests to ensure nodeId is valid and correctly set.
  *
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
@@ -29,10 +29,9 @@ use sweelix\yii1\ext\entities\Group;
  * @category  filters
  * @package   sweelix.yii1.admin.base.filters
  */
-class ContextGroupFilter extends \CFilter {
-
+class ContextNode extends \CFilter {
 	/**
-	 * Check if current groupId is passed to the application
+	 * Check if current nodeId is passed to the application
 	 *
 	 * @param CFilterChain $filterChain the current filter chain
 	 *
@@ -41,16 +40,19 @@ class ContextGroupFilter extends \CFilter {
 	 */
 	protected function preFilter($filterChain) {
 		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.filters');
-		$group = Group::model()->findByPk(\Yii::app()->request->getParam('groupId', 0));
-		if($group === null) {
-			$group = Group::model()->find(array('order' => 'groupId asc'));
+		$node = Node::model()->findByPk(\Yii::app()->request->getParam('nodeId', 0));
+		if($node === null) {
+			$node = Node::model()->findByAttributes(
+				array('nodeLevel'=>0),
+				array('order'=>'nodeLeftId ASC')
+			);
 			$targetRequest = $_GET;
-			$targetRequest['groupId'] = $group->groupId;
+			$targetRequest['nodeId'] = $node->nodeId;
 			array_unshift($targetRequest, $filterChain->controller->action->id);
 			$filterChain->controller->redirect( $targetRequest );
-			return false;
+    	    return false;
 		} else {
-			$filterChain->controller->setCurrentGroup($group);
+			$filterChain->controller->setCurrentNode($node);
 	        // logic being applied before the action is executed
     	    return true;
 		}

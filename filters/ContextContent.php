@@ -1,6 +1,6 @@
 <?php
 /**
- * File ContextNodeFilter.php
+ * File ContextContent.php
  *
  * PHP version 5.4+
  *
@@ -14,12 +14,12 @@
  */
 
 namespace sweelix\yii1\admin\base\filters;
-use sweelix\yii1\ext\entities\Node;
+use sweelix\yii1\ext\entities\Content;
 
 /**
- * Class ContextNodeFilter
+ * Class ContextContent
  *
- * This component filters requests to ensure nodeId is valid and correctly set.
+ * This component filters requests to ensure contentId is valid and correctly set.
  *
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
@@ -29,9 +29,10 @@ use sweelix\yii1\ext\entities\Node;
  * @category  filters
  * @package   sweelix.yii1.admin.base.filters
  */
-class ContextNodeFilter extends \CFilter {
+class ContextContent extends \CFilter {
+
 	/**
-	 * Check if current nodeId is passed to the application
+	 * Check if current contentId is passed to the application
 	 *
 	 * @param CFilterChain $filterChain the current filter chain
 	 *
@@ -40,21 +41,16 @@ class ContextNodeFilter extends \CFilter {
 	 */
 	protected function preFilter($filterChain) {
 		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.filters');
-		$node = Node::model()->findByPk(\Yii::app()->request->getParam('nodeId', 0));
-		if($node === null) {
-			$node = Node::model()->findByAttributes(
-				array('nodeLevel'=>0),
-				array('order'=>'nodeLeftId ASC')
-			);
-			$targetRequest = $_GET;
-			$targetRequest['nodeId'] = $node->nodeId;
-			array_unshift($targetRequest, $filterChain->controller->action->id);
-			$filterChain->controller->redirect( $targetRequest );
-    	    return false;
+		$content = Content::model()->findByPk(\Yii::app()->request->getParam('contentId', 0));
+		if($content === null) {
+			throw new \CHttpException(404,
+				\Yii::t('sweelix', 'Content {contentId} does not exists',
+					array( '{contentId}'=>\Yii::app()->request->getParam('contentId', 0)))
+				);
 		} else {
-			$filterChain->controller->setCurrentNode($node);
-	        // logic being applied before the action is executed
-    	    return true;
+			$filterChain->controller->setCurrentContent($content);
+			// logic being applied before the action is executed
+			return true;
 		}
 	}
 
@@ -64,7 +60,6 @@ class ContextNodeFilter extends \CFilter {
 	 * @param CFilterChain $filterChain the current filter chain
 	 *
 	 * @return void
-	 * @since  1.2.0
 	 */
 	protected function postFilter($filterChain) {
 	}

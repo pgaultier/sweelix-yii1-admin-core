@@ -2,7 +2,7 @@
 /**
  * templateSample.php
  *
- * PHP version 5.2+
+ * PHP version 5.4+
  *
  * This sample list all element types allowed and major config information
  *
@@ -20,13 +20,13 @@
  *  - checkboxlist
  *  - radiolist
  *
- * @author    Philippe Gaultier <pgaultier@ibitux.com>
- * @copyright 2010-2013 Sweelix
+ * @author    Philippe Gaultier <pgaultier@sweelix.net>
+ * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  templates
- * @package   Ccds.templates
+ * @package   sweelix.yii1.admin.templates
  */
 return array(
 	'idOfTheElement' => array(

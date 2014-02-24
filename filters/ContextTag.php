@@ -1,6 +1,6 @@
 <?php
 /**
- * File ContextContentFilter.php
+ * File ContextTag.php
  *
  * PHP version 5.4+
  *
@@ -14,12 +14,12 @@
  */
 
 namespace sweelix\yii1\admin\base\filters;
-use sweelix\yii1\ext\entities\Content;
+use sweelix\yii1\ext\entities\Tag;
 
 /**
- * Class ContextContentFilter
+ * Class ContextTag
  *
- * This component filters requests to ensure contentId is valid and correctly set.
+ * This component filters requests to ensure tagId is valid and correctly set.
  *
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
@@ -29,10 +29,10 @@ use sweelix\yii1\ext\entities\Content;
  * @category  filters
  * @package   sweelix.yii1.admin.base.filters
  */
-class ContextContentFilter extends \CFilter {
+class ContextTag extends \CFilter {
 
 	/**
-	 * Check if current contentId is passed to the application
+	 * Check if current groupId is passed to the application
 	 *
 	 * @param CFilterChain $filterChain the current filter chain
 	 *
@@ -41,16 +41,16 @@ class ContextContentFilter extends \CFilter {
 	 */
 	protected function preFilter($filterChain) {
 		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.filters');
-		$content = Content::model()->findByPk(\Yii::app()->request->getParam('contentId', 0));
-		if($content === null) {
+		$tag = Tag::model()->findByPk(\Yii::app()->request->getParam('tagId', 0));
+		if($tag === null) {
 			throw new \CHttpException(404,
-				\Yii::t('sweelix', 'Content {contentId} does not exists',
-					array( '{contentId}'=>\Yii::app()->request->getParam('contentId', 0)))
+				\Yii::t('sweelix', 'Tag {tagId} does not exists',
+					array( '{tagId}'=>\Yii::app()->request->getParam('tagId', 0)))
 				);
 		} else {
-			$filterChain->controller->setCurrentContent($content);
-			// logic being applied before the action is executed
-			return true;
+			$filterChain->controller->setCurrentTag($tag);
+	        // logic being applied before the action is executed
+    	    return true;
 		}
 	}
 
@@ -60,6 +60,7 @@ class ContextContentFilter extends \CFilter {
 	 * @param CFilterChain $filterChain the current filter chain
 	 *
 	 * @return void
+	 * @since  1.2.0
 	 */
 	protected function postFilter($filterChain) {
 	}

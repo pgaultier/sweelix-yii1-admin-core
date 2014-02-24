@@ -3,16 +3,16 @@
  * File en.php
  *
  * This file override original i18n file to have same info between javascript and php
- * 
- * PHP version 5.2+
+ *
+ * PHP version 5.4+
  *
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
- * @copyright 2010-2013 Sweelix
+ * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  i18n
- * @package   sweeft.i18n
+ * @package   sweelix.yii1.admin.i18n
  */
 return CMap::mergeArray(
 	require(Yii::getPathOfAlias('system.i18n.data').DIRECTORY_SEPARATOR.basename(__FILE__)),

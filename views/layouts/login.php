@@ -65,10 +65,10 @@ $sweeftModule = Yii::app()->getModule('sweeft');
 				</span>
 			</div>
 			<?php $this->endWidget(); ?>
-			<?php $this->widget('sweeft.widgets.MainMenuWidget'); ?>
+			<?php $this->widget('sweelix\yii1\admin\base\widgets\MainMenu'); ?>
 		</header>
 		<section id="main" class="login">
-		<?php echo $content; ?>
+			<?php echo $content; ?>
 		</section>
 		<footer>
 			<div class="bottom-bar">
