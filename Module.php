@@ -84,8 +84,8 @@ class Module extends \CWebModule {
 				'loginUrl'=>\Yii::app()->createUrl('sweeft/authentication/login'),
 			),
 			'messages' => array(
-				'class' => 'CPhpMessageSource',
-				'basePath' => \Yii::getPathOfAlias('sweeft.messages'),
+				'class' => 'sweelix\yii1\admin\core\components\GettextMessageSource',
+				'basePath' => __DIR__.DIRECTORY_SEPARATOR.'messages',
 			),
 			'session' => $sessionSetUp,
 			'urlManager' => array(
