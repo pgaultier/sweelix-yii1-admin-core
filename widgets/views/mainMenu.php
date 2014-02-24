@@ -18,7 +18,7 @@ use sweelix\yii1\web\helpers\Html;
 	<?php foreach($modules as $module):?>
 	<?php echo Html::openTag('li', $module['htmlOptions'], null, false); ?>
 		<?php echo Html::link(
-					(($module['hasIcon'] === true)?Sweeml::tag('i', array('class' => 'module-'.$module['name']), null, true).' ':'').
+					(($module['hasIcon'] === true)?Html::tag('i', array('class' => 'module-'.$module['name']), null, true).' ':'').
 					$module['title'],
 					$module['link'],
 					array('title' => $module['title'])

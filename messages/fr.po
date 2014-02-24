@@ -1,0 +1,135 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Sweelix - Core\n"
+"POT-Creation-Date: 2014-02-24 12:03+0100\n"
+"PO-Revision-Date: 2014-02-24 18:28+0100\n"
+"Last-Translator: \n"
+"Language-Team: Sweelix <pgaultier@sweelix.net>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: t:1c,2\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../../filters/ContextContent.php:47
+msgctxt "sweelix"
+msgid "Content {contentId} does not exists"
+msgstr ""
+
+#: ../../filters/ContextTag.php:47
+msgctxt "sweelix"
+msgid "Tag {tagId} does not exists"
+msgstr ""
+
+#: ../../models/Author.php:95
+msgctxt "sweelix"
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../../models/Author.php:96
+msgctxt "sweelix"
+msgid "Password"
+msgstr "Mot de passe"
+
+#: ../../models/Author.php:97
+msgctxt "sweelix"
+msgid "Auto-connect"
+msgstr "Connexion automatique"
+
+#: ../../models/Author.php:98
+msgctxt "sweelix"
+msgid "Confirm Password"
+msgstr "Confirmation mot de passe"
+
+#: ../../models/Author.php:99
+msgctxt "sweelix"
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
+#: ../../models/Author.php:127 ../../models/Author.php:154
+#: ../../models/Author.php:160
+msgctxt "sweelix"
+msgid "Incorrect password"
+msgstr "Mot de passe incorrect"
+
+#: ../../models/Author.php:130
+msgctxt "sweelix"
+msgid "Incorrect ID"
+msgstr "Identifiant incorrect"
+
+#: ../../models/Author.php:159
+msgctxt "sweelix"
+msgid "Incorrect username"
+msgstr "Nom d'utilisateur incorrect"
+
+#: ../../templates/templateSample.php:40
+msgctxt "sweelix"
+msgid "Name displayed"
+msgstr "Pseudo"
+
+#: ../../views/authentication/_login.php:26
+msgctxt "sweelix"
+msgid "Reset"
+msgstr "Annuler"
+
+#: ../../views/authentication/_login.php:27
+msgctxt "sweelix"
+msgid "Ok"
+msgstr "Ok"
+
+#: ../../widgets/MenuStepper.php:57
+msgctxt "sweelix"
+msgid "Create new {element}"
+msgstr "Créer un nouveau {element}"
+
+#: ../../widgets/MenuStepper.php:78 ../../widgets/MenuStepper.php:93
+#: ../../widgets/MenuStepper.php:97 ../../widgets/MenuStepper.php:105
+#: ../../widgets/MenuStepper.php:107
+msgctxt "sweelix"
+msgid "Step {n}"
+msgstr "Étape {n}"
+
+#: ../../widgets/MessageBox.php:87
+msgctxt "sweelix"
+msgid "Close"
+msgstr "Fermer"
+
+#: ../../widgets/MessageBox.php:91
+msgctxt "sweelix"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: ../../widgets/MessageBox.php:94
+msgctxt "sweelix"
+msgid "Warning"
+msgstr "Attention"
+
+#: ../../widgets/MessageBox.php:97
+msgctxt "sweelix"
+msgid "Error"
+msgstr "Erreur"
+
+#: ../../widgets/MessageBox.php:100
+msgctxt "sweelix"
+msgid "Information"
+msgstr "Information"
+
+#: ../../widgets/views/header.php:20 ../../widgets/views/header.php:23
+msgctxt "sweelix"
+msgid "Disconnect"
+msgstr "Déconnecter"
+
+#: ../../widgets/views/header.php:28
+msgctxt "sweelix"
+msgid "Connected as {firstname} {lastname}"
+msgstr "Connecté en tant que {firstname} {lastname}"
+
+#: ../../widgets/views/header.php:30
+msgctxt "sweelix"
+msgid "Last connection {date}"
+msgstr "Date de la dernière connexion {date}"

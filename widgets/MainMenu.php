@@ -67,31 +67,35 @@ class MainMenu extends \CWidget {
 		if(\Yii::app()->user->isGuest === true) {
 			echo $contents;
 		} else {
+			$currentMessageInstance = clone \Yii::app()->getMessages();
 			$modules = array();
 			foreach(\Yii::app()->getModule('sweeft')->getModules() as $name => $module) {
 				//check wheither the user is allowed to access the module
 				if(\Yii::app()->user->checkAccess($name)){
 					$hasIcon = false;
-					$moduleInstance = \Yii::createComponent($module);
+					$moduleInstance = \Yii::createComponent($module, $name, 'sweeft');
 					$moduleAssetsPath = $moduleInstance->getAssetsPath();
 					if(file_exists($moduleAssetsPath.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.'module.css') === true) {
 						$assetPath = \Yii::app()->getAssetManager()->publish($moduleAssetsPath);
 						\Yii::app()->getClientScript()->registerCssFile($assetPath.'/css/module.css');
 						$hasIcon = true;
 					}
-					unset($moduleAssetsPath);
+					//TODO: fix the translation system to force the module to translate himself
 					$modules[] = array(
 						'htmlOptions' => array(
 							'class' => $this->isSelected($name),
 						),
 						'link' => array('/sweeft/'.$name),
-						'title' => \Yii::t(ucfirst($name).'Module.sweelix',  ucfirst($name)),
+						// 'title' => \Yii::t(get_class($moduleInstance).'.sweelix',  ucfirst($name)),
+						'title' => $moduleInstance->getTitle(),
 						'name' => $name,
 						'hasIcon' => $hasIcon,
 					);
+					unset($moduleInstance);
 				}
-
 			}
+			\Yii::app()->setComponent('messages', $currentMessageInstance);
+
 			$this->render('mainMenu', ['modules' => $modules]);
 		}
 	}

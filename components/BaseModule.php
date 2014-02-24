@@ -46,7 +46,7 @@ class BaseModule extends \CWebModule {
 		if($this->_layoutPath!==null)
 			return $this->_layoutPath;
 		else
-			return $this->_layoutPath=$this->getParentModule()->getLayoutPath();
+			return $this->_layoutPath = $this->getParentModule()->getLayoutPath();
 	}
 	/**
 	 * Return module version
@@ -58,6 +58,29 @@ class BaseModule extends \CWebModule {
 		return $this->getParentModule()->getVersion();
 	}
 
+	private $_shortId;
+	/**
+	 * Return the short module id
+	 *
+	 * @return string
+	 * @since  XXX
+	 */
+	public function getShortId() {
+		if($this->_shortId === null) {
+			$parts = explode('/', $this->getId());
+			$this->_shortId = array_pop($parts);
+		}
+		return $this->_shortId;
+	}
+	/**
+	 * Return current module title
+	 *
+	 * @return string
+	 * @since  XXX
+	 */
+	public function getTitle() {
+		return \Yii::t($this->getShortId(), ucfirst($this->getShortId()));
+	}
 
 	/**
 	 * Return current asset path.
