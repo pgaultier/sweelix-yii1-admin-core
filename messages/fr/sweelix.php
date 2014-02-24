@@ -12,7 +12,7 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  messages
- * @package   sweelix.yii1.admin.messages
+ * @package   sweelix.yii1.admin.core.messages
  */
 return array(
 //Modules

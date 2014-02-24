@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  components
- * @package   sweelix.yii1.admin.base.components
+ * @package   sweelix.yii1.admin.core.components
  */
 
-namespace sweelix\yii1\admin\base\components;
+namespace sweelix\yii1\admin\core\components;
 use sweelix\yii1\ext\entities\Author;
 
 /**
@@ -28,7 +28,7 @@ use sweelix\yii1\ext\entities\Author;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  components
- * @package   sweelix.yii1.admin.base.components
+ * @package   sweelix.yii1.admin.core.components
  *
  * @property integer $id
  * @property boolean $isAuthenticated
@@ -184,7 +184,7 @@ class UserIdentity extends \CComponent implements \IUserIdentity {
 	 * @since  1.2.0
 	 */
 	public function authenticate() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.components');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.components');
 		$result = false;
 		try {
 
@@ -211,7 +211,7 @@ class UserIdentity extends \CComponent implements \IUserIdentity {
 			}
 			return $result;
 		} catch(\Exception $e) {
-			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.base.components');
+			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.components');
 			throw $e;
 		}
     }

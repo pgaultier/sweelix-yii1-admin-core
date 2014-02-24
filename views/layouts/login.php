@@ -10,7 +10,7 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  views
- * @package   sweelix.yii1.admin.views.layouts
+ * @package   sweelix.yii1.admin.core.views.layouts
  */
 
 Yii::app()->getClientScript()->registerSweelixScript('callback');
@@ -58,14 +58,14 @@ $sweeftModule = Yii::app()->getModule('sweeft');
 	</head>
 	<body>
 		<header>
-			<?php $this->beginWidget('sweelix\yii1\admin\base\widgets\Header'); ?>
+			<?php $this->beginWidget('sweelix\yii1\admin\core\widgets\Header'); ?>
 			<div class="top-bar">
 				<span class="text">
 					Sweelix - <?php echo Yii::app()->name; ?>
 				</span>
 			</div>
 			<?php $this->endWidget(); ?>
-			<?php $this->widget('sweelix\yii1\admin\base\widgets\MainMenu'); ?>
+			<?php $this->widget('sweelix\yii1\admin\core\widgets\MainMenu'); ?>
 		</header>
 		<section id="main" class="login">
 			<?php echo $content; ?>

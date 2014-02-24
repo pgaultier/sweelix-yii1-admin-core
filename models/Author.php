@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  models
- * @package   sweelix.yii1.admin.base.models
+ * @package   sweelix.yii1.admin.core.models
  */
 
-namespace sweelix\yii1\admin\base\models;
+namespace sweelix\yii1\admin\core\models;
 use sweelix\yii1\ext\entities\Author as EntityAuthor;
 use sweelix\yii1\admin\base\components\UserIdentity;
 
@@ -28,7 +28,7 @@ use sweelix\yii1\admin\base\components\UserIdentity;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  models
- * @package   sweelix.yii1.admin.base.models
+ * @package   sweelix.yii1.admin.core.models
  */
 class Author extends EntityAuthor {
 
@@ -120,7 +120,7 @@ class Author extends EntityAuthor {
 	 */
 	public function checkPassword($attribute, $params) {
 		try {
-			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.models');
+			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.models');
 			$author = EntityAuthor::model()->findByPk($this->authorId);
 			if($author !== null) {
 				if($this->authorPassword !== $author->authorPassword) {
@@ -130,7 +130,7 @@ class Author extends EntityAuthor {
 				$this->addError('authorId', \Yii::t('sweelix', 'Incorrect ID'));
 			}
 		} catch(\Exception $e) {
-			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.base.models');
+			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.models');
 			throw $e;
 		}
 	}
@@ -145,7 +145,7 @@ class Author extends EntityAuthor {
 	 */
 	public function authenticateClassic($attribute, $params) {
 		try {
-			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.models');
+			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.models');
 			// Login a user with the provided username and password.
 			$this->_identity = new UserIdentity($this->authorEmail, $this->authorPassword);
 			if($this->_identity->authenticate() !== true) {
@@ -162,7 +162,7 @@ class Author extends EntityAuthor {
 				}
 			}
 		} catch(\Exception $e) {
-			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.base.models');
+			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.models');
 			throw $e;
 		}
 	}
@@ -182,7 +182,7 @@ class Author extends EntityAuthor {
 	 * @return boolean
 	 */
 	public function beforeSave() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.models');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.models');
 		try {
 			if(parent::beforeSave()){
                 if ($this->isNewRecord){
@@ -196,7 +196,7 @@ class Author extends EntityAuthor {
                 }
             } else return false;
 		} catch(\Exception $e) {
-			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.base.models');
+			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.models');
 			throw $e;
 			return false;
 		}

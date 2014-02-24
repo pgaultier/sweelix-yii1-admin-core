@@ -10,7 +10,7 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  views
- * @package   sweelix.yii1.admin.base.widgets.views
+ * @package   sweelix.yii1.admin.core.widgets.views
  */
 use sweelix\yii1\web\helpers\Html;
 ?>

@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  widgets
- * @package   sweelix.yii1.admin.base.widgets
+ * @package   sweelix.yii1.admin.core.widgets
  */
 
-namespace sweelix\yii1\admin\base\widgets;
+namespace sweelix\yii1\admin\core\widgets;
 
 /**
  * Class ContextMenu
@@ -24,7 +24,7 @@ namespace sweelix\yii1\admin\base\widgets;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  widgets
- * @package   sweelix.yii1.admin.base.widgets
+ * @package   sweelix.yii1.admin.core.widgets
  */
 class ContextMenu extends \CWidget {
 
@@ -39,7 +39,7 @@ class ContextMenu extends \CWidget {
 	 * @since  2.0.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.widgets');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		ob_start();
 	}
 
@@ -51,7 +51,7 @@ class ContextMenu extends \CWidget {
 	 * @since  2.0.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.widgets');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		$content = ob_get_contents();
 		ob_end_clean();
 		if($this->main === null) {

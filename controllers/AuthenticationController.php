@@ -10,12 +10,12 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  controllers
- * @package   sweelix.yii1.admin.base.controllers
+ * @package   sweelix.yii1.admin.core.controllers
  */
 
-namespace sweelix\yii1\admin\base\controllers;
-use sweelix\yii1\admin\base\web\Controller;
-use sweelix\yii1\admin\base\models\Author;
+namespace sweelix\yii1\admin\core\controllers;
+use sweelix\yii1\admin\core\web\Controller;
+use sweelix\yii1\admin\core\models\Author;
 
 /**
  * Class AuthenticationController
@@ -26,7 +26,7 @@ use sweelix\yii1\admin\base\models\Author;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  controllers
- * @package   sweelix.yii1.admin.base.controllers
+ * @package   sweelix.yii1.admin.core.controllers
  */
 class AuthenticationController extends Controller {
 
@@ -38,10 +38,10 @@ class AuthenticationController extends Controller {
 	 */
 	public function actionIndex() {
 		try {
-			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.controllers');
+			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.controllers');
 			$this->redirect(array('authentication/login'));
 		} catch(\Exception $e) {
-			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.base.controllers');
+			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.controllers');
 			throw $e;
 		}
 
@@ -55,7 +55,7 @@ class AuthenticationController extends Controller {
 	 */
 	public function actionLogin() {
 		try {
-			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.controllers');
+			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.controllers');
 			$this->layout = 'login';
 			$author = new Author('authenticate');
 			if(isset($_POST[\CHtml::modelName($author)]) === true) {
@@ -77,7 +77,7 @@ class AuthenticationController extends Controller {
 				$this->render('login', array('author'=>$author));
 			}
 		} catch(\Exception $e) {
-			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.base.controllers');
+			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.controllers');
 			throw $e;
 		}
 	}
@@ -90,12 +90,12 @@ class AuthenticationController extends Controller {
 	 */
 	public function actionLogout() {
 		try {
-			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.controllers');
+			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.controllers');
 			\Yii::app()->user->logout();
 			\Yii::app()->user->setReturnUrl(null);
 			$this->redirect(array('default/'));
 		} catch(\Exception $e) {
-			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.base.controllers');
+			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.controllers');
 			throw $e;
 		}
 	}

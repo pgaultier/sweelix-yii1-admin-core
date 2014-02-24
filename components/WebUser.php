@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  components
- * @package   sweelix.yii1.admin.base.components
+ * @package   sweelix.yii1.admin.core.components
  */
 
-namespace sweelix\yii1\admin\base\components;
+namespace sweelix\yii1\admin\core\components;
 use sweelix\yii1\web\helpers\Html;
 
 /**
@@ -28,7 +28,7 @@ use sweelix\yii1\web\helpers\Html;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  components
- * @package   sweelix.yii1.admin.base.components
+ * @package   sweelix.yii1.admin.core.components
  * @since     XXX
  */
 class WebUser extends \CWebUser {

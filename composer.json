@@ -22,7 +22,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"sweelix\\yii1\\admin\\base\\" : ""
+			"sweelix\\yii1\\admin\\core\\" : ""
 		}
 	}
 }

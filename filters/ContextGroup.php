@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  filters
- * @package   sweelix.yii1.admin.base.filters
+ * @package   sweelix.yii1.admin.core.filters
  */
 
-namespace sweelix\yii1\admin\base\filters;
+namespace sweelix\yii1\admin\core\filters;
 use sweelix\yii1\ext\entities\Group;
 
 /**
@@ -27,7 +27,7 @@ use sweelix\yii1\ext\entities\Group;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  filters
- * @package   sweelix.yii1.admin.base.filters
+ * @package   sweelix.yii1.admin.core.filters
  */
 class ContextGroup extends \CFilter {
 
@@ -40,7 +40,7 @@ class ContextGroup extends \CFilter {
 	 * @since  1.2.0
 	 */
 	protected function preFilter($filterChain) {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.filters');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
 		$group = Group::model()->findByPk(\Yii::app()->request->getParam('groupId', 0));
 		if($group === null) {
 			$group = Group::model()->find(array('order' => 'groupId asc'));

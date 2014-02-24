@@ -12,7 +12,7 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  i18n
- * @package   sweelix.yii1.admin.i18n
+ * @package   sweelix.yii1.admin.core.i18n
  */
 return CMap::mergeArray(
 	require(Yii::getPathOfAlias('system.i18n.data').DIRECTORY_SEPARATOR.basename(__FILE__)),

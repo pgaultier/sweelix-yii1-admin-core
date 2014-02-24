@@ -10,11 +10,11 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  controllers
- * @package   sweelix.yii1.admin.base.controllers
+ * @package   sweelix.yii1.admin.core.controllers
  */
 
-namespace sweelix\yii1\admin\base\controllers;
-use sweelix\yii1\admin\base\web\Controller;
+namespace sweelix\yii1\admin\core\controllers;
+use sweelix\yii1\admin\core\web\Controller;
 
 /**
  * Class DefaultController
@@ -25,7 +25,7 @@ use sweelix\yii1\admin\base\web\Controller;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  controllers
- * @package   sweelix.yii1.admin.base.controllers
+ * @package   sweelix.yii1.admin.core.controllers
  */
 class DefaultController extends Controller {
 
@@ -37,7 +37,7 @@ class DefaultController extends Controller {
 	 */
 	public function actionIndex() {
 		try {
-			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.controllers');
+			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.controllers');
 			$appModules = $this->getModule()->getModules();
 			$targetModule = null;
 			foreach($appModules as $moduleName => $moduleConfig) {
@@ -53,7 +53,7 @@ class DefaultController extends Controller {
 				$this->redirect(array('authentication/'));
 			}
 		} catch(\Exception $e) {
-			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.base.controllers');
+			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.controllers');
 			throw $e;
 		}
 	}

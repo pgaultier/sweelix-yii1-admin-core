@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  filters
- * @package   sweelix.yii1.admin.base.filters
+ * @package   sweelix.yii1.admin.core.filters
  */
 
-namespace sweelix\yii1\admin\base\filters;
+namespace sweelix\yii1\admin\core\filters;
 use sweelix\yii1\ext\entities\Tag;
 
 /**
@@ -27,7 +27,7 @@ use sweelix\yii1\ext\entities\Tag;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  filters
- * @package   sweelix.yii1.admin.base.filters
+ * @package   sweelix.yii1.admin.core.filters
  */
 class ContextTag extends \CFilter {
 
@@ -40,7 +40,7 @@ class ContextTag extends \CFilter {
 	 * @since  1.2.0
 	 */
 	protected function preFilter($filterChain) {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.filters');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
 		$tag = Tag::model()->findByPk(\Yii::app()->request->getParam('tagId', 0));
 		if($tag === null) {
 			throw new \CHttpException(404,

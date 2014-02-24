@@ -26,7 +26,7 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  templates
- * @package   sweelix.yii1.admin.templates
+ * @package   sweelix.yii1.admin.core.templates
  */
 return array(
 	'idOfTheElement' => array(

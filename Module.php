@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  admin
- * @package   sweelix.yii1.admin.base
+ * @package   sweelix.yii1.admin.core
  */
 
-namespace sweelix\yii1\admin\base;
+namespace sweelix\yii1\admin\core;
 use sweelix\yii1\ext\components\Config as Extension;
 
 \Yii::setPathOfAlias('sweeft', __DIR__);
@@ -30,7 +30,7 @@ use sweelix\yii1\ext\components\Config as Extension;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  admin
- * @package   sweelix.yii1.admin.base
+ * @package   sweelix.yii1.admin.core
  * @since     1.0.0
  */
 class Module extends \CWebModule {
@@ -46,7 +46,7 @@ class Module extends \CWebModule {
 	/**
 	 * @var string controllers namespace
 	 */
-	public $controllerNamespace = 'sweelix\yii1\admin\base\controllers';
+	public $controllerNamespace = 'sweelix\yii1\admin\core\controllers';
 	/**
 	 * Init the module with specific information.
 	 * @see CModule::init()
@@ -78,7 +78,7 @@ class Module extends \CWebModule {
 		}
 		\Yii::app()->setComponents(array(
 			'user'=>array(
-				'class' => 'sweelix\yii1\admin\base\components\WebUser',
+				'class' => 'sweelix\yii1\admin\core\components\WebUser',
 				'stateKeyPrefix'=>'sweeft',
 				'allowAutoLogin'=>true,
 				'loginUrl'=>\Yii::app()->createUrl('sweeft/authentication/login'),

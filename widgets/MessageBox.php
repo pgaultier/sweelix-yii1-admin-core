@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  widgets
- * @package   sweelix.yii1.admin.base.widgets
+ * @package   sweelix.yii1.admin.core.widgets
  */
 
-namespace sweelix\yii1\admin\base\widgets;
+namespace sweelix\yii1\admin\core\widgets;
 use sweelix\yii1\web\helpers\Html;
 
 /**
@@ -25,7 +25,7 @@ use sweelix\yii1\web\helpers\Html;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  widgets
- * @package   sweelix.yii1.admin.base.widgets
+ * @package   sweelix.yii1.admin.core.widgets
  */
 class MessageBox extends \CWidget {
 	public $message;
@@ -41,7 +41,7 @@ class MessageBox extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.widgets');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		ob_start();
 		if($this->objects !== null) {
 			if(is_array($this->objects) === false) {
@@ -70,7 +70,7 @@ class MessageBox extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.widgets');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		$content=ob_get_contents();
 		ob_end_clean();
 		if(strlen($content) > 0) {

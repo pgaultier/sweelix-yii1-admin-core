@@ -11,10 +11,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  web
- * @package   sweelix.yii1.admin.base.web
+ * @package   sweelix.yii1.admin.core.web
  */
 
-namespace sweelix\yii1\admin\base\web;
+namespace sweelix\yii1\admin\core\web;
 use sweelix\yii1\web\helpers\Html;
 
 /**
@@ -28,7 +28,7 @@ use sweelix\yii1\web\helpers\Html;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  web
- * @package   sweelix.yii1.admin.base.web
+ * @package   sweelix.yii1.admin.core.web
  * @since     2.0.0
  *
  * @property Content $currentContent

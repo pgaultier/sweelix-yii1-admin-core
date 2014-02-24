@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  filters
- * @package   sweelix.yii1.admin.base.filters
+ * @package   sweelix.yii1.admin.core.filters
  */
 
-namespace sweelix\yii1\admin\base\filters;
+namespace sweelix\yii1\admin\core\filters;
 use sweelix\yii1\ext\entities\Node;
 
 /**
@@ -27,7 +27,7 @@ use sweelix\yii1\ext\entities\Node;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  filters
- * @package   sweelix.yii1.admin.base.filters
+ * @package   sweelix.yii1.admin.core.filters
  */
 class ContextNode extends \CFilter {
 	/**
@@ -39,7 +39,7 @@ class ContextNode extends \CFilter {
 	 * @since  1.2.0
 	 */
 	protected function preFilter($filterChain) {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.filters');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
 		$node = Node::model()->findByPk(\Yii::app()->request->getParam('nodeId', 0));
 		if($node === null) {
 			$node = Node::model()->findByAttributes(

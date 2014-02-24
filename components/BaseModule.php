@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  components
- * @package   sweelix.yii1.admin.components
+ * @package   sweelix.yii1.admin.core.components
  */
 
-namespace sweelix\yii1\admin\base\components;
+namespace sweelix\yii1\admin\core\components;
 
 /**
  * Class BaseModule
@@ -26,7 +26,7 @@ namespace sweelix\yii1\admin\base\components;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  components
- * @package   sweelix.yii1.admin.components
+ * @package   sweelix.yii1.admin.core.components
  * @since     XXX
  */
 class BaseModule extends \CWebModule {

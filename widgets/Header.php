@@ -10,10 +10,10 @@
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  widgets
- * @package   sweelix.yii1.admin.base.widgets
+ * @package   sweelix.yii1.admin.core.widgets
  */
 
-namespace sweelix\yii1\admin\base\widgets;
+namespace sweelix\yii1\admin\core\widgets;
 
 /**
  * Class Header
@@ -24,7 +24,7 @@ namespace sweelix\yii1\admin\base\widgets;
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  widgets
- * @package   sweelix.yii1.admin.base.widgets
+ * @package   sweelix.yii1.admin.core.widgets
  */
 class Header extends \CWidget {
 
@@ -36,7 +36,7 @@ class Header extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.widgets');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		ob_start();
 	}
 
@@ -48,7 +48,7 @@ class Header extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.base.widgets');
+		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		$content = ob_get_contents();
 		ob_end_clean();
 		if(\Yii::app()->user->isGuest === true) {
