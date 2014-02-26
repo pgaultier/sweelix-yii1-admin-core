@@ -42,7 +42,7 @@ class Module extends \CWebModule {
 	/**
 	 * @var integer define session lifetime
 	 **/
-	public $sessionLifetime = 3600;
+	public $sessionLifetime = 86400;
 	/**
 	 * @var string controllers namespace
 	 */
