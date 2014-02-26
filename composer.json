@@ -10,15 +10,11 @@
 	} ],
 	"require" : {
 		"php" : ">=5.4.0",
-		"yiisoft/yii" : "=1.1.14",
-		"sweelix/yii1" : "*",
-		"sweelix/yii1-cmsext" : "*"
+		"sweelix/yii1-ext" : "*"
 	},
 	"require-dev" : {
 		"php" : ">=5.4.0",
-		"yiisoft/yii" : "=1.1.14",
-		"sweelix/yii1" : "dev-devel",
-		"sweelix/yii1-cmsext" : "dev-devel"
+		"sweelix/yii1-ext" : "dev-devel"
 	},
 	"autoload" : {
 		"psr-4" : {
