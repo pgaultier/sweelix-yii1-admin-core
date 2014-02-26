@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sweelix - Core\n"
-"POT-Creation-Date: 2014-02-24 12:03+0100\n"
-"PO-Revision-Date: 2014-02-24 18:28+0100\n"
+"POT-Creation-Date: 2014-02-26 10:43+0100\n"
+"PO-Revision-Date: 2014-02-26 11:24+0100\n"
 "Last-Translator: \n"
 "Language-Team: Sweelix <pgaultier@sweelix.net>\n"
 "Language: fr\n"
@@ -15,121 +15,736 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: t:1c,2\n"
 "X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: ../../yii1-ext\n"
 
-#: ../../filters/ContextContent.php:47
+#: ../../yii1-ext/db/ar/Author.php:113 ../../yii1-ext/db/ar/Content.php:142
+#: ../../yii1-ext/db/ar/Node.php:143 ../../yii1-ext/entities/Node.php:612
+msgctxt "sweelix"
+msgid "Author"
+msgstr "Auteur"
+
+#: ../../yii1-ext/db/ar/Author.php:114
+msgctxt "sweelix"
+msgid "Author Email"
+msgstr "E-mail"
+
+#: ../../yii1-ext/db/ar/Author.php:115
+msgctxt "sweelix"
+msgid "Author Password"
+msgstr "Mot de passe"
+
+#: ../../yii1-ext/db/ar/Author.php:116
+msgctxt "sweelix"
+msgid "Author Firstname"
+msgstr "Prénom"
+
+#: ../../yii1-ext/db/ar/Author.php:117
+msgctxt "sweelix"
+msgid "Author Lastname"
+msgstr "Nom"
+
+#: ../../yii1-ext/db/ar/Author.php:118
+msgctxt "sweelix"
+msgid "Author Last Login"
+msgstr "Dernière connexion"
+
+#: ../../yii1-ext/db/ar/Author.php:119 ../../yii1-ext/db/ar/Content.php:144
+#: ../../yii1-ext/db/ar/Group.php:122 ../../yii1-ext/db/ar/Language.php:107
+#: ../../yii1-ext/db/ar/Node.php:145 ../../yii1-ext/db/ar/Tag.php:125
+#: ../../yii1-ext/entities/Node.php:614
+msgctxt "sweelix"
+msgid "Language"
+msgstr "Langue"
+
+#: ../../yii1-ext/db/ar/Content.php:129
+#: ../../yii1-ext/db/ar/ContentMeta.php:101
+#: ../../yii1-ext/db/ar/ContentTag.php:98 ../../yii1-ext/db/ar/Token.php:117
+#: ../models/Content.php:76
+msgctxt "sweelix"
+msgid "Content"
+msgstr "Article"
+
+#: ../../yii1-ext/db/ar/Content.php:130
+msgctxt "sweelix"
+msgid "Content Title"
+msgstr "Titre"
+
+#: ../../yii1-ext/db/ar/Content.php:131
+msgctxt "sweelix"
+msgid "Content Subtitle"
+msgstr "Sous-titre"
+
+#: ../../yii1-ext/db/ar/Content.php:132
+msgctxt "sweelix"
+msgid "Content Url"
+msgstr "URL"
+
+#: ../../yii1-ext/db/ar/Content.php:133
+msgctxt "sweelix"
+msgid "Content Data"
+msgstr "Données"
+
+#: ../../yii1-ext/db/ar/Content.php:134
+msgctxt "sweelix"
+msgid "Content Order"
+msgstr "Ordre"
+
+#: ../../yii1-ext/db/ar/Content.php:135
+msgctxt "sweelix"
+msgid "Content Start Date"
+msgstr "Date de début"
+
+#: ../../yii1-ext/db/ar/Content.php:136
+msgctxt "sweelix"
+msgid "Content End Date"
+msgstr "Date de fin"
+
+#: ../../yii1-ext/db/ar/Content.php:137
+msgctxt "sweelix"
+msgid "Content Status"
+msgstr "Statut"
+
+#: ../../yii1-ext/db/ar/Content.php:138
+msgctxt "sweelix"
+msgid "Content Viewed"
+msgstr "Vue"
+
+#: ../../yii1-ext/db/ar/Content.php:139
+msgctxt "sweelix"
+msgid "Content Create Date"
+msgstr "Date de création"
+
+#: ../../yii1-ext/db/ar/Content.php:140
+msgctxt "sweelix"
+msgid "Content Update Date"
+msgstr "Date de mise à jour"
+
+#: ../../yii1-ext/db/ar/Content.php:141 ../../yii1-ext/db/ar/Node.php:130
+#: ../../yii1-ext/db/ar/NodeMeta.php:101 ../../yii1-ext/db/ar/NodeTag.php:98
+#: ../../yii1-ext/db/ar/Token.php:118 ../models/Node.php:98
+msgctxt "sweelix"
+msgid "Node"
+msgstr "Rubrique"
+
+#: ../../yii1-ext/db/ar/Content.php:143 ../../yii1-ext/db/ar/Group.php:121
+#: ../../yii1-ext/db/ar/Node.php:144 ../../yii1-ext/db/ar/Tag.php:124
+#: ../../yii1-ext/db/ar/Template.php:112 ../../yii1-ext/entities/Node.php:613
+msgctxt "sweelix"
+msgid "Template"
+msgstr "Gabarit"
+
+#: ../../yii1-ext/db/ar/ContentMeta.php:102 ../../yii1-ext/db/ar/Meta.php:102
+#: ../../yii1-ext/db/ar/NodeMeta.php:102 ../models/Meta.php:86
+msgctxt "sweelix"
+msgid "Meta"
+msgstr "Meta-donnée"
+
+#: ../../yii1-ext/db/ar/ContentMeta.php:103
+msgctxt "sweelix"
+msgid "Content Meta Value"
+msgstr "Valeur"
+
+#: ../../yii1-ext/db/ar/ContentTag.php:99 ../../yii1-ext/db/ar/NodeTag.php:99
+#: ../../yii1-ext/db/ar/Tag.php:117 ../../yii1-ext/db/ar/Token.php:119
+#: ../models/Content.php:77 ../models/Tag.php:70
+msgctxt "sweelix"
+msgid "Tag"
+msgstr "Mot-clef"
+
+#: ../../yii1-ext/db/ar/Group.php:114 ../../yii1-ext/db/ar/Tag.php:123
+#: ../../yii1-ext/db/ar/Token.php:120 ../models/Group.php:70
+msgctxt "sweelix"
+msgid "Group"
+msgstr "Groupe"
+
+#: ../../yii1-ext/db/ar/Group.php:115
+msgctxt "sweelix"
+msgid "Group Title"
+msgstr "Titre"
+
+#: ../../yii1-ext/db/ar/Group.php:116
+msgctxt "sweelix"
+msgid "Group Type"
+msgstr "Type"
+
+#: ../../yii1-ext/db/ar/Group.php:117
+msgctxt "sweelix"
+msgid "Group Url"
+msgstr "URL"
+
+#: ../../yii1-ext/db/ar/Group.php:118
+msgctxt "sweelix"
+msgid "Group Data"
+msgstr "Données"
+
+#: ../../yii1-ext/db/ar/Group.php:119
+msgctxt "sweelix"
+msgid "Group Create Date"
+msgstr "Date de création"
+
+#: ../../yii1-ext/db/ar/Group.php:120
+msgctxt "sweelix"
+msgid "Group Update Date"
+msgstr "Date de mise à jour"
+
+#: ../../yii1-ext/db/ar/Language.php:108
+msgctxt "sweelix"
+msgid "Language Title"
+msgstr "Titre"
+
+#: ../../yii1-ext/db/ar/Language.php:109
+msgctxt "sweelix"
+msgid "Language Is Active"
+msgstr "Actif"
+
+#: ../../yii1-ext/db/ar/Meta.php:103
+msgctxt "sweelix"
+msgid "Meta Default Value"
+msgstr "Valeur par défaut"
+
+#: ../../yii1-ext/db/ar/Node.php:131
+msgctxt "sweelix"
+msgid "Node Title"
+msgstr "Titre"
+
+#: ../../yii1-ext/db/ar/Node.php:132
+msgctxt "sweelix"
+msgid "Node Url"
+msgstr "URL"
+
+#: ../../yii1-ext/db/ar/Node.php:133
+msgctxt "sweelix"
+msgid "Node Data"
+msgstr "Données"
+
+#: ../../yii1-ext/db/ar/Node.php:134
+msgctxt "sweelix"
+msgid "Node Create Date"
+msgstr "Date de création"
+
+#: ../../yii1-ext/db/ar/Node.php:135
+msgctxt "sweelix"
+msgid "Node Update Date"
+msgstr "Date de mise à jour"
+
+#: ../../yii1-ext/db/ar/Node.php:136
+msgctxt "sweelix"
+msgid "Node Display Mode"
+msgstr "Mode d'affichage"
+
+#: ../../yii1-ext/db/ar/Node.php:137
+msgctxt "sweelix"
+msgid "Node Redirection"
+msgstr "Redirection"
+
+#: ../../yii1-ext/db/ar/Node.php:138
+msgctxt "sweelix"
+msgid "Node Left"
+msgstr "Borne gauche"
+
+#: ../../yii1-ext/db/ar/Node.php:139
+msgctxt "sweelix"
+msgid "Node Right"
+msgstr "Borne droite"
+
+#: ../../yii1-ext/db/ar/Node.php:140
+msgctxt "sweelix"
+msgid "Node Level"
+msgstr "Niveau"
+
+#: ../../yii1-ext/db/ar/Node.php:141
+msgctxt "sweelix"
+msgid "Node Status"
+msgstr "Statut"
+
+#: ../../yii1-ext/db/ar/Node.php:142
+msgctxt "sweelix"
+msgid "Node Viewed"
+msgstr "Vue"
+
+#: ../../yii1-ext/db/ar/NodeMeta.php:103
+msgctxt "sweelix"
+msgid "Node Meta Value"
+msgstr "Valeur"
+
+#: ../../yii1-ext/db/ar/Tag.php:118
+msgctxt "sweelix"
+msgid "Tag Title"
+msgstr "Titre"
+
+#: ../../yii1-ext/db/ar/Tag.php:119
+msgctxt "sweelix"
+msgid "Tag Url"
+msgstr "URL"
+
+#: ../../yii1-ext/db/ar/Tag.php:120
+msgctxt "sweelix"
+msgid "Tag Data"
+msgstr "Données"
+
+#: ../../yii1-ext/db/ar/Tag.php:121
+msgctxt "sweelix"
+msgid "Tag Create Date"
+msgstr "Date de création"
+
+#: ../../yii1-ext/db/ar/Tag.php:122
+msgctxt "sweelix"
+msgid "Tag Update Date"
+msgstr "Date de mise à jour"
+
+#: ../../yii1-ext/db/ar/Template.php:113
+msgctxt "sweelix"
+msgid "Template Title"
+msgstr "Titre"
+
+#: ../../yii1-ext/db/ar/Template.php:114
+msgctxt "sweelix"
+msgid "Template Definition"
+msgstr "Définition"
+
+#: ../../yii1-ext/db/ar/Template.php:115
+msgctxt "sweelix"
+msgid "Template Controller"
+msgstr "Contrôleur"
+
+#: ../../yii1-ext/db/ar/Template.php:116
+msgctxt "sweelix"
+msgid "Template Action"
+msgstr "Action"
+
+#: ../../yii1-ext/db/ar/Template.php:117
+msgctxt "sweelix"
+msgid "Template Composite"
+msgstr "Composite"
+
+#: ../../yii1-ext/db/ar/Template.php:118
+msgctxt "sweelix"
+msgid "Template Type"
+msgstr "Type"
+
+#: ../../yii1-ext/db/ar/Token.php:111
+msgctxt "sweelix"
+msgid "Element Property"
+msgstr "Propriété"
+
+#: ../../yii1-ext/db/ar/Token.php:112
+msgctxt "sweelix"
+msgid "Element"
+msgstr "Element"
+
+#: ../../yii1-ext/db/ar/Token.php:113
+msgctxt "sweelix"
+msgid "Element Type"
+msgstr "Type"
+
+#: ../../yii1-ext/db/ar/Token.php:114 ../../yii1-ext/entities/Node.php:600
+msgctxt "sweelix"
+msgid "Title"
+msgstr "Titre"
+
+#: ../../yii1-ext/db/ar/Token.php:115
+msgctxt "sweelix"
+msgid "Keyword"
+msgstr "Mot-clef"
+
+#: ../../yii1-ext/db/ar/Token.php:116
+msgctxt "sweelix"
+msgid "Numeric"
+msgstr "Numérique"
+
+#: ../../yii1-ext/db/ar/Token.php:121
+msgctxt "sweelix"
+msgid "Keyword Weight"
+msgstr "Pondération"
+
+#: ../../yii1-ext/db/ar/Token.php:122
+msgctxt "sweelix"
+msgid "Keyword Date Create"
+msgstr "Date de création"
+
+#: ../../yii1-ext/db/ar/Url.php:101
+msgctxt "sweelix"
+msgid "Url Value"
+msgstr "Valeur"
+
+#: ../../yii1-ext/db/ar/Url.php:102
+msgctxt "sweelix"
+msgid "Url Element Type"
+msgstr "Type de l'élément associé"
+
+#: ../../yii1-ext/db/ar/Url.php:103
+msgctxt "sweelix"
+msgid "Url Element"
+msgstr "Id de l'élément associé"
+
+#: ../../yii1-ext/entities/Content.php:120
+msgctxt "sweelix"
+msgid "Content has been updated by {firstname} {lastname}"
+msgstr "L'article a été mis à jour par {first name} {last name}"
+
+#: ../../yii1-ext/entities/Content.php:268
+#: ../../yii1-ext/entities/Node.php:286
+msgctxt "sweelix"
+msgid "draft"
+msgstr "brouillon"
+
+#: ../../yii1-ext/entities/Content.php:269
+#: ../../yii1-ext/entities/Node.php:287
+msgctxt "sweelix"
+msgid "online"
+msgstr "publié"
+
+#: ../../yii1-ext/entities/Content.php:270
+#: ../../yii1-ext/entities/Node.php:288
+msgctxt "sweelix"
+msgid "offline"
+msgstr "désactivé"
+
+#: ../../yii1-ext/entities/Content.php:354
+msgctxt "sweelix"
+msgid "Enable start date"
+msgstr "Activer la date de début"
+
+#: ../../yii1-ext/entities/Content.php:355
+msgctxt "sweelix"
+msgid "Enable end date"
+msgstr "Activer la date de fin"
+
+#: ../../yii1-ext/entities/Content.php:376
+msgctxt "sweelix"
+msgid "Start date is incorrect"
+msgstr "La date de début est incorrecte"
+
+#: ../../yii1-ext/entities/Content.php:378
+msgctxt "sweelix"
+msgid "End date is incorrect"
+msgstr "La date de fin est incorrecte"
+
+#: ../../yii1-ext/entities/Content.php:404
+#: ../../yii1-ext/entities/Content.php:409
+#: ../../yii1-ext/entities/Group.php:246 ../../yii1-ext/entities/Group.php:251
+#: ../../yii1-ext/entities/Node.php:312 ../../yii1-ext/entities/Node.php:317
+#: ../../yii1-ext/entities/Tag.php:233 ../../yii1-ext/entities/Tag.php:238
+msgctxt "sweelix"
+msgid "Url already exists"
+msgstr "L'URL existe déjà"
+
+#: ../../yii1-ext/entities/Group.php:197
+msgctxt "sweelix"
+msgid "single"
+msgstr "simple"
+
+#: ../../yii1-ext/entities/Group.php:198
+msgctxt "sweelix"
+msgid "multiple"
+msgstr "multiple"
+
+#: ../../yii1-ext/entities/Group.php:266
+msgctxt "sweelix"
+msgid "Group type is incorrect"
+msgstr "Le type du groupe est incorrect"
+
+#: ../../yii1-ext/entities/Node.php:123
+msgctxt "sweelix"
+msgid "Node has been updated by {firstname} {lastname}"
+msgstr "La rubrique a été mise à jour par {first name} {last name}"
+
+#: ../../yii1-ext/entities/Node.php:272
+msgctxt "sweelix"
+msgid "first"
+msgstr "1er article"
+
+#: ../../yii1-ext/entities/Node.php:273
+msgctxt "sweelix"
+msgid "list"
+msgstr "composition"
+
+#: ../../yii1-ext/entities/Node.php:274
+msgctxt "sweelix"
+msgid "redirect"
+msgstr "redirection"
+
+#: ../../yii1-ext/entities/Node.php:339
+msgctxt "sweelix"
+msgid "NodeId is mandatory to create a new node"
+msgstr "L'id rubrique est obligatoire pour créer un nouveau noeud"
+
+#: ../../yii1-ext/entities/Node.php:362
+msgctxt "yii"
+msgid "The active record cannot be inserted to database because it is not new."
+msgstr ""
+"L'active record ne peut être inséré dans la base de données car il n'est mas "
+"nouveau"
+
+#: ../../yii1-ext/entities/Node.php:599
+msgctxt "sweelix"
+msgid "Id"
+msgstr "Id"
+
+#: ../../yii1-ext/entities/Node.php:601
+msgctxt "sweelix"
+msgid "URL"
+msgstr "URL"
+
+#: ../../yii1-ext/entities/Node.php:602
+msgctxt "sweelix"
+msgid "Data"
+msgstr "Données"
+
+#: ../../yii1-ext/entities/Node.php:603
+msgctxt "sweelix"
+msgid "Create Date"
+msgstr "Date de création"
+
+#: ../../yii1-ext/entities/Node.php:604
+msgctxt "sweelix"
+msgid "Update Date"
+msgstr "Date de mise à jour"
+
+#: ../../yii1-ext/entities/Node.php:605
+msgctxt "sweelix"
+msgid "Display Mode"
+msgstr "Mode d'affichage"
+
+#: ../../yii1-ext/entities/Node.php:606
+msgctxt "sweelix"
+msgid "Redirection"
+msgstr "Redirection"
+
+#: ../../yii1-ext/entities/Node.php:607
+msgctxt "sweelix"
+msgid "Left id"
+msgstr "Borne gauche"
+
+#: ../../yii1-ext/entities/Node.php:608
+msgctxt "sweelix"
+msgid "Right id"
+msgstr "Borne droite"
+
+#: ../../yii1-ext/entities/Node.php:609
+msgctxt "sweelix"
+msgid "Level"
+msgstr "Niveau"
+
+#: ../../yii1-ext/entities/Node.php:610
+msgctxt "sweelix"
+msgid "Status"
+msgstr "Statut"
+
+#: ../../yii1-ext/entities/Node.php:611
+msgctxt "sweelix"
+msgid "Viewed"
+msgstr "Vue"
+
+#: ../../yii1-ext/entities/Url.php:105
+msgctxt "sweelix"
+msgid "Uncaught url exception"
+msgstr "Exception URL inconnue"
+
+#: ../../yii1-ext/web/UrlManager.php:244 ../../yii1-ext/web/UrlManager.php:300
+#: ../../yii1-ext/web/UrlManager.php:374
+msgctxt "sweelix"
+msgid "Element not found"
+msgstr "Elément non trouvé"
+
+#: ../../yii1-ext/web/UrlManager.php:295
+msgctxt "sweelix"
+msgid "Recursive redirection loop"
+msgstr "Boucle récursive de redirection"
+
+#: ../../yii1-ext/web/widgets/Info.php:101
+msgctxt "sweelix"
+msgid "Node {id}"
+msgstr "Rubrique {id}"
+
+#: ../../yii1-ext/web/widgets/Info.php:106
+msgctxt "sweelix"
+msgid "Content {id}"
+msgstr "Article {id}"
+
+#: ../../yii1-ext/web/widgets/Info.php:111
+msgctxt "sweelix"
+msgid "Group {id}"
+msgstr "Groupe {id}"
+
+#: ../../yii1-ext/web/widgets/Info.php:116
+msgctxt "sweelix"
+msgid "Tag {id}"
+msgstr "Mot-clef {id}"
+
+#: ../../yii1-ext/web/widgets/ListView.php:94
+msgctxt "sweelix"
+msgid "The property \"itemView\" cannot be empty."
+msgstr "La propriété \"itemView\" ne peut être vide"
+
+#: ../filters/ContextContent.php:47
 msgctxt "sweelix"
 msgid "Content {contentId} does not exists"
-msgstr ""
+msgstr "L'article {contentId} n'existe pas"
 
-#: ../../filters/ContextTag.php:47
+#: ../filters/ContextTag.php:47
 msgctxt "sweelix"
 msgid "Tag {tagId} does not exists"
-msgstr ""
+msgstr "Le mot-clef  {tagId} n'existe pas"
 
-#: ../../models/Author.php:95
+#: ../models/Author.php:95
 msgctxt "sweelix"
 msgid "E-mail"
 msgstr "E-mail"
 
-#: ../../models/Author.php:96
+#: ../models/Author.php:96
 msgctxt "sweelix"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: ../../models/Author.php:97
+#: ../models/Author.php:97
 msgctxt "sweelix"
 msgid "Auto-connect"
 msgstr "Connexion automatique"
 
-#: ../../models/Author.php:98
+#: ../models/Author.php:98
 msgctxt "sweelix"
 msgid "Confirm Password"
 msgstr "Confirmation mot de passe"
 
-#: ../../models/Author.php:99
+#: ../models/Author.php:99
 msgctxt "sweelix"
 msgid "New Password"
 msgstr "Nouveau mot de passe"
 
-#: ../../models/Author.php:127 ../../models/Author.php:154
-#: ../../models/Author.php:160
+#: ../models/Author.php:127 ../models/Author.php:154 ../models/Author.php:160
 msgctxt "sweelix"
 msgid "Incorrect password"
 msgstr "Mot de passe incorrect"
 
-#: ../../models/Author.php:130
+#: ../models/Author.php:130
 msgctxt "sweelix"
 msgid "Incorrect ID"
 msgstr "Identifiant incorrect"
 
-#: ../../models/Author.php:159
+#: ../models/Author.php:159
 msgctxt "sweelix"
 msgid "Incorrect username"
 msgstr "Nom d'utilisateur incorrect"
 
-#: ../../templates/templateSample.php:40
+#: ../models/Content.php:78 ../models/Group.php:72 ../models/Tag.php:72
+msgctxt "sweelix"
+msgid "Selected"
+msgstr "Sélectionné"
+
+#: ../models/Group.php:71
+msgctxt "sweelix"
+msgid "Target group id"
+msgstr "Groupe cible"
+
+#: ../models/Meta.php:87
+msgctxt "sweelix"
+msgid "Override general value"
+msgstr "Surcharger la valeur"
+
+#: ../models/Meta.php:88
+msgctxt "sweelix"
+msgid "Default value"
+msgstr "Valeur par défaut"
+
+#: ../models/Meta.php:89
+msgctxt "sweelix"
+msgid "Value"
+msgstr "Valeur"
+
+#: ../models/Meta.php:90
+msgctxt "sweelix"
+msgid "Node ID"
+msgstr "Id rubrique"
+
+#: ../models/Meta.php:91
+msgctxt "sweelix"
+msgid "Content ID"
+msgstr "Id article"
+
+#: ../models/Node.php:87
+msgctxt "sweelix"
+msgid "This node move is unknown"
+msgstr "Cette rubrique est inconnue"
+
+#: ../models/Node.php:99
+msgctxt "sweelix"
+msgid "Target"
+msgstr "Cible"
+
+#: ../models/Node.php:100
+msgctxt "sweelix"
+msgid "Where"
+msgstr "Où"
+
+#: ../models/Tag.php:71
+msgctxt "sweelix"
+msgid "Target tag id"
+msgstr "Mot-clef cible"
+
+#: ../templates/templateSample.php:40
 msgctxt "sweelix"
 msgid "Name displayed"
 msgstr "Pseudo"
 
-#: ../../views/authentication/_login.php:26
+#: ../views/authentication/_login.php:26
 msgctxt "sweelix"
 msgid "Reset"
 msgstr "Annuler"
 
-#: ../../views/authentication/_login.php:27
+#: ../views/authentication/_login.php:27
 msgctxt "sweelix"
 msgid "Ok"
 msgstr "Ok"
 
-#: ../../widgets/MenuStepper.php:57
+#: ../widgets/MenuStepper.php:57
 msgctxt "sweelix"
 msgid "Create new {element}"
 msgstr "Créer un nouveau {element}"
 
-#: ../../widgets/MenuStepper.php:78 ../../widgets/MenuStepper.php:93
-#: ../../widgets/MenuStepper.php:97 ../../widgets/MenuStepper.php:105
-#: ../../widgets/MenuStepper.php:107
+#: ../widgets/MenuStepper.php:78 ../widgets/MenuStepper.php:93
+#: ../widgets/MenuStepper.php:97 ../widgets/MenuStepper.php:105
+#: ../widgets/MenuStepper.php:107
 msgctxt "sweelix"
 msgid "Step {n}"
 msgstr "Étape {n}"
 
-#: ../../widgets/MessageBox.php:87
+#: ../widgets/MessageBox.php:87
 msgctxt "sweelix"
 msgid "Close"
 msgstr "Fermer"
 
-#: ../../widgets/MessageBox.php:91
+#: ../widgets/MessageBox.php:91
 msgctxt "sweelix"
 msgid "Confirmation"
 msgstr "Confirmation"
 
-#: ../../widgets/MessageBox.php:94
+#: ../widgets/MessageBox.php:94
 msgctxt "sweelix"
 msgid "Warning"
 msgstr "Attention"
 
-#: ../../widgets/MessageBox.php:97
+#: ../widgets/MessageBox.php:97
 msgctxt "sweelix"
 msgid "Error"
 msgstr "Erreur"
 
-#: ../../widgets/MessageBox.php:100
+#: ../widgets/MessageBox.php:100
 msgctxt "sweelix"
 msgid "Information"
 msgstr "Information"
 
-#: ../../widgets/views/header.php:20 ../../widgets/views/header.php:23
+#: ../widgets/views/header.php:20 ../widgets/views/header.php:23
 msgctxt "sweelix"
 msgid "Disconnect"
 msgstr "Déconnecter"
 
-#: ../../widgets/views/header.php:28
+#: ../widgets/views/header.php:28
 msgctxt "sweelix"
 msgid "Connected as {firstname} {lastname}"
 msgstr "Connecté en tant que {firstname} {lastname}"
 
-#: ../../widgets/views/header.php:30
+#: ../widgets/views/header.php:30
 msgctxt "sweelix"
 msgid "Last connection {date}"
 msgstr "Date de la dernière connexion {date}"
