@@ -74,7 +74,7 @@ return array(
 			 * All other configuration parameters related to base element should be set here.
 			 *
 			 * For example:
-			 * Config data for asyncfile @see Sweeml::activeAsyncFileUpload
+			 * Config data for asyncfile @see Html::activeAsyncFileUpload
 			 * 'config' => array(
 			 * 	'maxFileSize' => '512mb',
 			 * 	'multiSelection' => true,
