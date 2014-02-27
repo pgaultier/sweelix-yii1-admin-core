@@ -44,7 +44,7 @@ class ElasticForm extends \CComponent {
 	/**
 	 * Model used to handle the form
 	 *
-	 * @return SwDynamicModel
+	 * @return ElasticModel
 	 * @since  1.0.0
 	 */
 	public function getModel() {
@@ -58,7 +58,7 @@ class ElasticForm extends \CComponent {
 	 * Constructor, create the dynamic form using
 	 * array or file config or dynamic model
 	 *
-	 * @param mixed $config file / array configuration / SwDynamicModel
+	 * @param mixed $config file / array configuration / ElasticModel
 	 *
 	 * @return void
 	 */
@@ -130,15 +130,15 @@ class ElasticForm extends \CComponent {
 }
 /**
  *
- * Class SwElasticFormElement
+ * Class ElasticFormElement
  *
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
- * @copyright 2010-2013 Sweelix
+ * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
  * @version   2.0.1
  * @link      http://www.sweelix.net
  * @category  components
- * @package   sweeft.components
+ * @package   sweelix.yii1.admin.core.components
  * @since     1.2.0
  */
 class ElasticFormElement extends \CComponent {
@@ -167,9 +167,9 @@ class ElasticFormElement extends \CComponent {
 	 * Create an element using the dynamic model and config array
 	 *
 	 * @param array          $config configuration for current element
-	 * @param SwDynamicModel $model  model used to produce the form
+	 * @param ElasticModel $model  model used to produce the form
 	 *
-	 * @return SwDynamicFormElement
+	 * @return ElasticFormElement
 	 * @since  1.0.0
 	 */
 	public function __construct($config, $model) {
@@ -178,8 +178,8 @@ class ElasticFormElement extends \CComponent {
 	/**
 	 * Create an element using the dynamic model and config array
 	 *
-	 * @param array          $config configuration for current element
-	 * @param SwDynamicModel $model  model used to produce the form
+	 * @param array        $config configuration for current element
+	 * @param ElasticModel $model  model used to produce the form
 	 *
 	 * @return void
 	 * @since  1.0.0

@@ -153,7 +153,7 @@ class Controller extends \CController {
 	/**
 	 * Allow easy redirect for classic *and* Ajax pages
 	 *
-	 * @param array   $url                  target url in yii format @see Sweeml::normalizeUrl()
+	 * @param array   $url                  target url in yii format @see Html::normalizeUrl()
 	 * @param boolean $terminate            end request after redirect
 	 * @param integer $statusCode           http code used for redirect
 	 * @param boolean $forceClassicRedirect redirect using http even if we are in an ajax request

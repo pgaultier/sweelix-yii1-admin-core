@@ -49,7 +49,7 @@ class Author extends EntityAuthor {
 	 */
 	public $authorRoles=array();
 	/**
-	 * @var SwUserIdentity identity
+	 * @var UserIdentity identity
 	 */
 	private $_identity;
 
@@ -136,7 +136,7 @@ class Author extends EntityAuthor {
 	}
 
 	/**
-	 * manage authentication through SwUserIdentity
+	 * manage authentication through UserIdentity
 	 *
 	 * @param mixed $attribute attribute information
 	 * @param mixed $params    event parameter

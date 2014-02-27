@@ -73,12 +73,12 @@ class UserIdentity extends \CComponent implements \IUserIdentity {
 	public $errorMessage='';
 
 	/**
-	 * SwIdentity constructor. Init needed information
+	 * UserIdentity constructor. Init needed information
 	 *
 	 * @param string $email    the email used to login
 	 * @param string $password user password
 	 *
-	 * @return SwIdentity
+	 * @return UserIdentity
 	 * @since  1.2.0
 	 */
 	public function __construct($email, $password) {
