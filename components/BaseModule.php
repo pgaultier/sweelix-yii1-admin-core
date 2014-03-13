@@ -7,7 +7,7 @@
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
- * @version   2.0.1
+ * @version   3.0.0
  * @link      http://www.sweelix.net
  * @category  components
  * @package   sweelix.yii1.admin.core.components
@@ -23,11 +23,11 @@ namespace sweelix\yii1\admin\core\components;
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
- * @version   2.0.1
+ * @version   3.0.0
  * @link      http://www.sweelix.net
  * @category  components
  * @package   sweelix.yii1.admin.core.components
- * @since     XXX
+ * @since     3.0.0
  */
 class BaseModule extends \CWebModule {
 	protected $basePath;
@@ -63,7 +63,7 @@ class BaseModule extends \CWebModule {
 	 * Return the short module id
 	 *
 	 * @return string
-	 * @since  XXX
+	 * @since  3.0.0
 	 */
 	public function getShortId() {
 		if($this->_shortId === null) {
@@ -76,7 +76,7 @@ class BaseModule extends \CWebModule {
 	 * Return current module title
 	 *
 	 * @return string
-	 * @since  XXX
+	 * @since  3.0.0
 	 */
 	public function getTitle() {
 		return \Yii::t($this->getShortId(), ucfirst($this->getShortId()));
