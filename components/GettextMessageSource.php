@@ -7,7 +7,7 @@
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
- * @version   2.0.1
+ * @version   3.0.0
  * @link      http://www.sweelix.net
  * @category  components
  * @package   sweelix.yii1.admin.core.components
@@ -23,11 +23,11 @@ namespace sweelix\yii1\admin\core\components;
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
- * @version   2.0.1
+ * @version   3.0.0
  * @link      http://www.sweelix.net
  * @category  components
  * @package   sweelix.yii1.admin.core.components
- * @since     XXX
+ * @since     3.0.0
  */
 class GettextMessageSource extends \CGettextMessageSource {
 	/**
