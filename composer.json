@@ -10,6 +10,7 @@
 	} ],
 	"require" : {
 		"php" : ">=5.4.0",
+		"sweelix/yii1" : "*",
 		"sweelix/yii1-ext" : "*"
 	},
 	"autoload" : {
