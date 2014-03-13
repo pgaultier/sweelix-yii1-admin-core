@@ -12,10 +12,6 @@
 		"php" : ">=5.4.0",
 		"sweelix/yii1-ext" : "*"
 	},
-	"require-dev" : {
-		"php" : ">=5.4.0",
-		"sweelix/yii1-ext" : "dev-devel"
-	},
 	"autoload" : {
 		"psr-4" : {
 			"sweelix\\yii1\\admin\\core\\" : ""
