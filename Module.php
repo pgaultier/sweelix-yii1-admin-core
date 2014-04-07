@@ -89,6 +89,10 @@ class Module extends \CWebModule {
 				'forceTranslation' => true,
 			),
 			'session' => $sessionSetUp,
+			'urlManager' => array(
+				//TODO: fix url rules, they are causing problems when we do not set the action in the route,
+				'urlFormat'=>'get',
+			),
 			'authManager'=>array(
 				'class'=>'\CDbAuthManager',
 				'connectionID'=>'db',
