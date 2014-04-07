@@ -89,9 +89,6 @@ class Module extends \CWebModule {
 				'forceTranslation' => true,
 			),
 			'session' => $sessionSetUp,
-			'urlManager' => array(
-				'class' => 'sweelix\yii1\ext\web\UrlManager',
-			),
 			'authManager'=>array(
 				'class'=>'\CDbAuthManager',
 				'connectionID'=>'db',
