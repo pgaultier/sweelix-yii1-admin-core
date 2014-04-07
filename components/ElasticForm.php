@@ -7,7 +7,7 @@
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
- * @version   3.0.1
+ * @version   3.1.0
  * @link      http://www.sweelix.net
  * @category  components
  * @package   sweelix.yii1.admin.core.components
@@ -26,7 +26,7 @@ use sweelix\yii1\web\helpers\Html;
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
- * @version   3.0.1
+ * @version   3.1.0
  * @link      http://www.sweelix.net
  * @category  components
  * @package   sweelix.yii1.admin.core.components
@@ -135,7 +135,7 @@ class ElasticForm extends \CComponent {
  * @author    Philippe Gaultier <pgaultier@sweelix.net>
  * @copyright 2010-2014 Sweelix
  * @license   http://www.sweelix.net/license license
- * @version   3.0.1
+ * @version   3.1.0
  * @link      http://www.sweelix.net
  * @category  components
  * @package   sweelix.yii1.admin.core.components
