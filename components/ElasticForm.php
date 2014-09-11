@@ -37,6 +37,11 @@ class ElasticForm extends \CComponent {
 	 * @var The model associated with current form
 	 */
 	private $_model;
+
+	/**
+	 * @var string the full path to the rendering template
+	 */
+	private $_renderingTemplate = false;
 	/**
 	 * @var string separator added between elements
 	 */
@@ -84,17 +89,21 @@ class ElasticForm extends \CComponent {
 	 * @since  1.0.0
 	 */
 	protected function configure() {
-		foreach($this->_model->getTemplateConfig() as $elementName => $elementConfig) {
-			if($elementName === 'separator') {
-				$this->separator = $elementConfig;
-			} else {
-				if(isset($elementConfig['element']) === true) {
-					$elementConfig = $elementConfig['element'];
+		$templateId = $this->_model->templateId;
+		$this->_renderingTemplate = $this->_model->getRenderingTemplate($templateId);
+		if($this->_renderingTemplate === false) {
+			foreach($this->_model->getTemplateConfig() as $elementName => $elementConfig) {
+				if($elementName === 'separator') {
+					$this->separator = $elementConfig;
+				} else {
+					if(isset($elementConfig['element']) === true) {
+						$elementConfig = $elementConfig['element'];
+					}
+					if(isset($elementConfig['name']) === false) {
+						$elementConfig['name'] = $elementName;
+					}
+					$this->addElement($elementConfig);
 				}
-				if(isset($elementConfig['name']) === false) {
-					$elementConfig['name'] = $elementName;
-				}
-				$this->addElement($elementConfig);
 			}
 		}
 	}
@@ -108,15 +117,26 @@ class ElasticForm extends \CComponent {
 	 */
 	public function render($return=true) {
 		$result = '';
-		foreach($this->_elements as $el) {
-			$result = $result.$el->render().$this->separator;
-		}
-		if($return === true) {
-			return $result;
+		if($this->_renderingTemplate === false) {
+			foreach($this->_elements as $el) {
+				$result = $result.$el->render().$this->separator;
+			}
+			if($return === true) {
+				return $result;
+			} else {
+				echo $result;
+				return true;
+			}
 		} else {
-			echo $result;
-			return true;
+			$controller = \Yii::app()->getController();
+			$result = $controller->renderFile($this->_renderingTemplate, array('model' => $this->_model), $return);
+			if($return === true) {
+				return $result;
+			} else {
+				return true;
+			}
 		}
+		//
 	}
 	/**
 	 * Render the html
