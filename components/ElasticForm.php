@@ -19,6 +19,8 @@ use sweelix\yii1\ext\entities\Content;
 use sweelix\yii1\ext\entities\Group;
 use sweelix\yii1\ext\entities\Tag;
 use sweelix\yii1\web\helpers\Html;
+use CComponent;
+use Yii;
 
 /**
  * Class ElasticForm
@@ -32,7 +34,7 @@ use sweelix\yii1\web\helpers\Html;
  * @package   sweelix.yii1.admin.core.components
  * @since     2.0.0
  */
-class ElasticForm extends \CComponent {
+class ElasticForm extends CComponent {
 	/**
 	 * @var The model associated with current form
 	 */
@@ -128,7 +130,7 @@ class ElasticForm extends \CComponent {
 				return true;
 			}
 		} else {
-			$controller = \Yii::app()->getController();
+			$controller = Yii::app()->getController();
 			$result = $controller->renderFile($this->_renderingTemplate, array('model' => $this->_model), $return);
 			if($return === true) {
 				return $result;
@@ -230,8 +232,8 @@ class ElasticFormElement extends \CComponent {
 				$this->_element = Html::$method($model, $name, $listData, $config);
 			} else {
 				if($method == 'activeAsyncFileUpload') {
-					if(\Yii::app()->getRequest()->isAjaxRequest === false) {
-						\Yii::app()->getClientScript()->registerScriptFile(\Yii::app()->getModule('sweeft')->getAssetsUrl().'/js/jquery.sweeftloader.js');
+					if(Yii::app()->getRequest()->isAjaxRequest === false) {
+						Yii::app()->getClientScript()->registerScriptFile(Yii::app()->getModule('sweeft')->getAssetsUrl().'/js/jquery.sweeftloader.js');
 					}
 					if(isset($config['config']['ui']) === false) {
 						$config['config']['ui'] = 'js:new SweeftUploader()';
@@ -287,8 +289,3 @@ class ElasticFormElement extends \CComponent {
 		}
 	}
 }
-
-
-
-
-

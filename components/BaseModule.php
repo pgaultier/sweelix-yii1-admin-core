@@ -13,7 +13,10 @@
  * @package   sweelix.yii1.admin.core.components
  */
 
-namespace sweelix\yii1\admin\core\components;
+namespace sweelixYii1\admin\core\components;
+
+use CWebModule;
+use Yii;
 
 /**
  * Class BaseModule
@@ -29,7 +32,7 @@ namespace sweelix\yii1\admin\core\components;
  * @package   sweelix.yii1.admin.core.components
  * @since     3.0.0
  */
-class BaseModule extends \CWebModule {
+class BaseModule extends CWebModule {
 	protected $basePath;
 	private $_assetsUrl;
 	private $_assetsPath;
@@ -79,7 +82,7 @@ class BaseModule extends \CWebModule {
 	 * @since  3.0.0
 	 */
 	public function getTitle() {
-		return \Yii::t($this->getShortId(), ucfirst($this->getShortId()));
+		return Yii::t($this->getShortId(), ucfirst($this->getShortId()));
 	}
 
 	/**
@@ -104,7 +107,7 @@ class BaseModule extends \CWebModule {
 	 */
 	public function getAssetsUrl() {
 		if(($this->_assetsUrl === null) && ($this->basePath !== null)) {
-			$this->_assetsUrl = \Yii::app()->getAssetManager()->publish($this->getAssetsPath());
+			$this->_assetsUrl = Yii::app()->getAssetManager()->publish($this->getAssetsPath());
 		}
 		return $this->_assetsUrl;
 	}
@@ -130,7 +133,7 @@ class BaseModule extends \CWebModule {
 	 */
 	public function registerScripts() {
 		if(file_exists($this->getAssetsPath().DIRECTORY_SEPARATOR.'js'.DIRECTORY_SEPARATOR.'module.js') === true) {
-			\Yii::app()->getClientScript()->registerScriptFile($this->getAssetsUrl().'/js/module.js');
+			Yii::app()->getClientScript()->registerScriptFile($this->getAssetsUrl().'/js/module.js');
 		}
 	}
 }

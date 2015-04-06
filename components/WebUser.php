@@ -14,7 +14,9 @@
  */
 
 namespace sweelix\yii1\admin\core\components;
+
 use sweelix\yii1\web\helpers\Html;
+use CWebUser;
 
 /**
  * Class WebUser
@@ -31,7 +33,7 @@ use sweelix\yii1\web\helpers\Html;
  * @package   sweelix.yii1.admin.core.components
  * @since     3.0.0
  */
-class WebUser extends \CWebUser {
+class WebUser extends CWebUser {
 	/**
 	 * Get return url using modules parameters
 	 * @see CWebUser::getReturnUrl()

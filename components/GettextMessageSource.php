@@ -15,6 +15,12 @@
 
 namespace sweelix\yii1\admin\core\components;
 
+use CGettextMessageSource;
+use CFileCacheDependency;
+use CGettextPoFile;
+use CGettextMoFile;
+use Yii;
+
 /**
  * Class GettextMessageSource
  *
@@ -29,7 +35,7 @@ namespace sweelix\yii1\admin\core\components;
  * @package   sweelix.yii1.admin.core.components
  * @since     3.0.0
  */
-class GettextMessageSource extends \CGettextMessageSource {
+class GettextMessageSource extends CGettextMessageSource {
 	/**
 	 * @var array the message paths for extensions that do not have a base class to use as category prefix.
 	 * The format of the array should be:
@@ -66,14 +72,14 @@ class GettextMessageSource extends \CGettextMessageSource {
 				$extensionCategory=substr($category,$pos+1);
 				// First check if there's an extension registered for this class.
 				if(isset($this->extensionPaths[$extensionClass])) {
-					$this->_files[$category][$language]=\Yii::getPathOfAlias($this->extensionPaths[$extensionClass]).DIRECTORY_SEPARATOR.$language;
+					$this->_files[$category][$language]=Yii::getPathOfAlias($this->extensionPaths[$extensionClass]).DIRECTORY_SEPARATOR.$language;
 				} else {
 					// No extension registered, need to find it.
 					$class=new \ReflectionClass($extensionClass);
 					$this->_files[$category][$language]=dirname($class->getFileName()).DIRECTORY_SEPARATOR.'messages'.DIRECTORY_SEPARATOR.$language;
 				}
 			} elseif(isset($this->extensionPaths[$category])) {
-				$this->_files[$category][$language]=\Yii::getPathOfAlias($this->extensionPaths[$category]).DIRECTORY_SEPARATOR.$language;
+				$this->_files[$category][$language]=Yii::getPathOfAlias($this->extensionPaths[$category]).DIRECTORY_SEPARATOR.$language;
 			}
 			else
 				$this->_files[$category][$language]=$this->basePath.DIRECTORY_SEPARATOR.$language;
@@ -93,24 +99,24 @@ class GettextMessageSource extends \CGettextMessageSource {
 	 */
 	protected function loadMessages($category, $language) {
 		$messageFile = $this->getMessageFile($category,$language);
-		if ($this->cachingDuration > 0 && $this->cacheID!==false && ($cache=\Yii::app()->getComponent($this->cacheID))!==null) {
+		if ($this->cachingDuration > 0 && $this->cacheID!==false && ($cache=Yii::app()->getComponent($this->cacheID))!==null) {
 			$key = self::CACHE_KEY_PREFIX . $messageFile;
 			if (($data=$cache->get($key)) !== false)
 				return unserialize($data);
 		}
 		if (is_file($messageFile) === true) {
 			if($this->useMoFile)
-				$file = new \CGettextMoFile($this->useBigEndian);
+				$file = new CGettextMoFile($this->useBigEndian);
 			else
-				$file = new \CGettextPoFile();
+				$file = new CGettextPoFile();
 			$messages = $file->load($messageFile,$category);
 			if(isset($cache) === true) {
-				$dependency = new \CFileCacheDependency($messageFile);
+				$dependency = new CFileCacheDependency($messageFile);
 				$cache->set($key,serialize($messages),$this->cachingDuration,$dependency);
 			}
 			return $messages;
 		}
 		else
-			return [];
+			return array();
 	}
 }
