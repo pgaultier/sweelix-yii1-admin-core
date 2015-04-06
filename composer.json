@@ -9,9 +9,9 @@
 		"email" : "pgaultier@sweelix.net"
 	} ],
 	"require" : {
-		"php" : ">=5.4.0",
-		"sweelix/yii1" : "3.1.*",
-		"sweelix/yii1-ext" : "3.1.*"
+		"php" : ">=5.3.0",
+		"sweelix/yii1" : "3.2.*",
+		"sweelix/yii1-ext" : "3.2.*"
 	},
 	"autoload" : {
 		"psr-4" : {
