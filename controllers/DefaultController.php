@@ -14,7 +14,11 @@
  */
 
 namespace sweelix\yii1\admin\core\controllers;
+
 use sweelix\yii1\admin\core\web\Controller;
+use Yii;
+use Exception;
+use CLogger;
 
 /**
  * Class DefaultController
@@ -37,11 +41,11 @@ class DefaultController extends Controller {
 	 */
 	public function actionIndex() {
 		try {
-			\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.controllers');
+			Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.controllers');
 			$appModules = $this->getModule()->getModules();
 			$targetModule = null;
 			foreach($appModules as $moduleName => $moduleConfig) {
-				if(\Yii::app()->user->checkAccess($moduleName) === true) {
+				if(Yii::app()->user->checkAccess($moduleName) === true) {
 					$targetModule = $moduleName;
 					break;
 				}
@@ -49,11 +53,11 @@ class DefaultController extends Controller {
 			if($targetModule !== null) {
 				$this->redirect(array($targetModule.'/'));
 			} else {
-				\Yii::app()->user->logout();
+				Yii::app()->user->logout();
 				$this->redirect(array('authentication/'));
 			}
-		} catch(\Exception $e) {
-			\Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), \CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.controllers');
+		} catch(Exception $e) {
+			Yii::log('Error in '.__METHOD__.'():'.$e->getMessage(), CLogger::LEVEL_ERROR, 'sweelix.yii1.admin.core.controllers');
 			throw $e;
 		}
 	}

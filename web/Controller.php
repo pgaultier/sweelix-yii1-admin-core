@@ -15,7 +15,11 @@
  */
 
 namespace sweelix\yii1\admin\core\web;
+
 use sweelix\yii1\web\helpers\Html;
+use CController;
+use CHtml;
+use Yii;
 
 /**
  * Class Controller
@@ -36,7 +40,7 @@ use sweelix\yii1\web\helpers\Html;
  * @property Tag     $currentTag
  * @property Group   $currentGroup
  */
-class Controller extends \CController {
+class Controller extends CController {
 
 	/**
 	 * @var Node current node in use
@@ -161,14 +165,14 @@ class Controller extends \CController {
 	 * @return void
 	 */
 	public function redirect($url, $terminate=true, $statusCode=302, $forceClassicRedirect = false) {
-		if((\Yii::app()->getRequest()->isAjaxRequest === true) && ($forceClassicRedirect === false)) {
-			if(\Yii::app()->getRequest()->isJsRequest == true) {
+		if((Yii::app()->getRequest()->isAjaxRequest === true) && ($forceClassicRedirect === false)) {
+			if(Yii::app()->getRequest()->isJsRequest == true) {
 				$this->renderJs(Html::raiseRedirect($url), $terminate);
 			} else {
-				$js = 'document.location.href = \''.\CHtml::normalizeUrl($url).'\';';
-				echo \CHtml::script($js);
+				$js = 'document.location.href = \''.CHtml::normalizeUrl($url).'\';';
+				echo CHtml::script($js);
 				if($terminate === true) {
-					\Yii::app()->end();
+					Yii::app()->end();
 				}
 			}
 
