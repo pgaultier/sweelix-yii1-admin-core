@@ -12,4 +12,4 @@
  * @category  templates
  * @package   sweelix.yii1.admin.core.templates
  */
-return [];
+return array();

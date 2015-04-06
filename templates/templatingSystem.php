@@ -22,7 +22,7 @@
  */
 
 // use the sweelix helper to have access to async upload system
-use sweelix\yii1\web\helper\Html;
+use sweelix\yii1\web\helpers\Html;
 
 
 /**
