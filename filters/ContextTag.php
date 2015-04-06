@@ -14,7 +14,11 @@
  */
 
 namespace sweelix\yii1\admin\core\filters;
+
 use sweelix\yii1\ext\entities\Tag;
+use CFilter;
+use CHttpException;
+use Yii;
 
 /**
  * Class ContextTag
@@ -29,7 +33,7 @@ use sweelix\yii1\ext\entities\Tag;
  * @category  filters
  * @package   sweelix.yii1.admin.core.filters
  */
-class ContextTag extends \CFilter {
+class ContextTag extends CFilter {
 
 	/**
 	 * Check if current groupId is passed to the application
@@ -40,12 +44,12 @@ class ContextTag extends \CFilter {
 	 * @since  1.2.0
 	 */
 	protected function preFilter($filterChain) {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
-		$tag = Tag::model()->findByPk(\Yii::app()->request->getParam('tagId', 0));
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
+		$tag = Tag::model()->findByPk(Yii::app()->request->getParam('tagId', 0));
 		if($tag === null) {
-			throw new \CHttpException(404,
-				\Yii::t('sweelix', 'Tag {tagId} does not exists',
-					array( '{tagId}'=>\Yii::app()->request->getParam('tagId', 0)))
+			throw new CHttpException(404,
+				Yii::t('sweelix', 'Tag {tagId} does not exists',
+					array( '{tagId}'=>Yii::app()->request->getParam('tagId', 0)))
 				);
 		} else {
 			$filterChain->controller->setCurrentTag($tag);

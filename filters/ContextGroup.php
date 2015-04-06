@@ -14,7 +14,10 @@
  */
 
 namespace sweelix\yii1\admin\core\filters;
+
 use sweelix\yii1\ext\entities\Group;
+use CFilter;
+use Yii;
 
 /**
  * Class ContextGroup
@@ -29,7 +32,7 @@ use sweelix\yii1\ext\entities\Group;
  * @category  filters
  * @package   sweelix.yii1.admin.core.filters
  */
-class ContextGroup extends \CFilter {
+class ContextGroup extends CFilter {
 
 	/**
 	 * Check if current groupId is passed to the application
@@ -40,8 +43,8 @@ class ContextGroup extends \CFilter {
 	 * @since  1.2.0
 	 */
 	protected function preFilter($filterChain) {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
-		$group = Group::model()->findByPk(\Yii::app()->request->getParam('groupId', 0));
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
+		$group = Group::model()->findByPk(Yii::app()->request->getParam('groupId', 0));
 		if($group === null) {
 			$group = Group::model()->find(array('order' => 'groupId asc'));
 			$targetRequest = $_GET;

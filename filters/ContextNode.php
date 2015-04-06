@@ -14,7 +14,10 @@
  */
 
 namespace sweelix\yii1\admin\core\filters;
+
 use sweelix\yii1\ext\entities\Node;
+use CFilter;
+use Yii;
 
 /**
  * Class ContextNode
@@ -29,7 +32,7 @@ use sweelix\yii1\ext\entities\Node;
  * @category  filters
  * @package   sweelix.yii1.admin.core.filters
  */
-class ContextNode extends \CFilter {
+class ContextNode extends CFilter {
 	/**
 	 * Check if current nodeId is passed to the application
 	 *
@@ -39,8 +42,8 @@ class ContextNode extends \CFilter {
 	 * @since  1.2.0
 	 */
 	protected function preFilter($filterChain) {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
-		$node = Node::model()->findByPk(\Yii::app()->request->getParam('nodeId', 0));
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
+		$node = Node::model()->findByPk(Yii::app()->request->getParam('nodeId', 0));
 		if($node === null) {
 			$node = Node::model()->findByAttributes(
 				array('nodeLevel'=>0),
