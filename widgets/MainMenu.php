@@ -15,6 +15,9 @@
 
 namespace sweelix\yii1\admin\core\widgets;
 
+use CWidget;
+use Yii;
+
 /**
  * Class MainMenu
  *
@@ -26,7 +29,7 @@ namespace sweelix\yii1\admin\core\widgets;
  * @category  widgets
  * @package   sweelix.yii1.admin.core.widgets
  */
-class MainMenu extends \CWidget {
+class MainMenu extends CWidget {
 
 	private $_moduleName;
 	/**
@@ -49,7 +52,7 @@ class MainMenu extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		ob_start();
 	}
 
@@ -61,23 +64,23 @@ class MainMenu extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		$contents=ob_get_contents();
 		ob_end_clean();
-		if(\Yii::app()->user->isGuest === true) {
+		if(Yii::app()->user->isGuest === true) {
 			echo $contents;
 		} else {
-			$currentMessageInstance = clone \Yii::app()->getMessages();
+			$currentMessageInstance = clone Yii::app()->getMessages();
 			$modules = array();
-			foreach(\Yii::app()->getModule('sweeft')->getModules() as $name => $module) {
+			foreach(Yii::app()->getModule('sweeft')->getModules() as $name => $module) {
 				//check wheither the user is allowed to access the module
-				if(\Yii::app()->user->checkAccess($name)){
+				if(Yii::app()->user->checkAccess($name)){
 					$hasIcon = false;
-					$moduleInstance = \Yii::createComponent($module, $name, 'sweeft');
+					$moduleInstance = Yii::createComponent($module, $name, 'sweeft');
 					$moduleAssetsPath = $moduleInstance->getAssetsPath();
 					if(file_exists($moduleAssetsPath.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.'module.css') === true) {
-						$assetPath = \Yii::app()->getAssetManager()->publish($moduleAssetsPath);
-						\Yii::app()->getClientScript()->registerCssFile($assetPath.'/css/module.css');
+						$assetPath = Yii::app()->getAssetManager()->publish($moduleAssetsPath);
+						Yii::app()->getClientScript()->registerCssFile($assetPath.'/css/module.css');
 						$hasIcon = true;
 					}
 					//TODO: fix the translation system to force the module to translate himself
@@ -86,7 +89,7 @@ class MainMenu extends \CWidget {
 							'class' => $this->isSelected($name),
 						),
 						'link' => array('/sweeft/'.$name),
-						// 'title' => \Yii::t(get_class($moduleInstance).'.sweelix',  ucfirst($name)),
+						// 'title' => Yii::t(get_class($moduleInstance).'.sweelix',  ucfirst($name)),
 						'title' => $moduleInstance->getTitle(),
 						'name' => $name,
 						'hasIcon' => $hasIcon,
@@ -94,9 +97,9 @@ class MainMenu extends \CWidget {
 					unset($moduleInstance);
 				}
 			}
-			\Yii::app()->setComponent('messages', $currentMessageInstance);
+			Yii::app()->setComponent('messages', $currentMessageInstance);
 
-			$this->render('mainMenu', ['modules' => $modules]);
+			$this->render('mainMenu', array('modules' => $modules));
 		}
 	}
 

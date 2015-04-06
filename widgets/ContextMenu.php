@@ -15,6 +15,10 @@
 
 namespace sweelix\yii1\admin\core\widgets;
 
+use CMap;
+use CWidget;
+use Yii;
+
 /**
  * Class ContextMenu
  *
@@ -26,7 +30,7 @@ namespace sweelix\yii1\admin\core\widgets;
  * @category  widgets
  * @package   sweelix.yii1.admin.core.widgets
  */
-class ContextMenu extends \CWidget {
+class ContextMenu extends CWidget {
 
 	public $main;
 	public $secondary;
@@ -39,7 +43,7 @@ class ContextMenu extends \CWidget {
 	 * @since  2.0.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		ob_start();
 	}
 
@@ -51,32 +55,32 @@ class ContextMenu extends \CWidget {
 	 * @since  2.0.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		$content = ob_get_contents();
 		ob_end_clean();
 		if($this->main === null) {
 			echo $content;
 		} else {
-			$mainMenu = [];
+			$mainMenu = array();
 			foreach($this->main as $element) {
-				if(is_string($element)) $element = ['content' => $element];
-				$mainMenu[] = \CMap::mergeArray(['content' => '', 'htmlOptions' => []], $element);
+				if(is_string($element)) $element = array('content' => $element);
+				$mainMenu[] = CMap::mergeArray(array('content' => '', 'htmlOptions' => array()), $element);
 			}
 			$secondaryMenu = null;
 			if($this->secondary !== null) {
-				$secondaryMenu = [];
+				$secondaryMenu = array();
 				foreach($this->secondary as $element) {
-					if(is_string($element)) $element = ['content' => $element];
-					$secondaryMenu[] = \CMap::mergeArray(['content' => '', 'htmlOptions' => []], $element);
+					if(is_string($element)) $element = array('content' => $element);
+					$secondaryMenu[] = CMap::mergeArray(array('content' => '', 'htmlOptions' => array()), $element);
 				}
 			}
 
 
-			$this->render('contextMenu', [
+			$this->render('contextMenu', array(
 				'htmlOptions' => $this->htmlOptions,
 				'mainMenu' => $mainMenu,
 				'secondaryMenu' => $secondaryMenu,
-			]);
+            ));
 		}
 	}
 }

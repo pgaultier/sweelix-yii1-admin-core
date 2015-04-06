@@ -14,7 +14,10 @@
  */
 
 namespace sweelix\yii1\admin\core\widgets;
+
 use sweelix\yii1\web\helpers\Html;
+use CWidget;
+use Yii;
 
 /**
  * Class MenuStepper
@@ -27,7 +30,7 @@ use sweelix\yii1\web\helpers\Html;
  * @category  widgets
  * @package   sweelix.yii1.admin.core.widgets
  */
-class MenuStepper extends \CWidget {
+class MenuStepper extends CWidget {
 
 	private $_stepperInfo;
 	public $elementId;
@@ -49,13 +52,13 @@ class MenuStepper extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		if($this->steps === null) {
 			$this->steps = $this->step;
 		}
 		$this->_stepperInfo = array(
-			'header' => \Yii::t('sweelix', 'Create new {element}', array('{element}'=>$this->controller->id)),
-			'title' => \Yii::t('sweelix', ucfirst($this->controller->id)),
+			'header' => Yii::t('sweelix', 'Create new {element}', array('{element}'=>$this->controller->id)),
+			'title' => Yii::t('sweelix', ucfirst($this->controller->id)),
 			'class' => $this->controller->id.'Element',
 		);
 	}
@@ -68,14 +71,14 @@ class MenuStepper extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		echo Html::tag('ul',
 			array('id'=>'breadcrumb'),
 			Html::tag('li',array(),
 				Html::tag('span', array(), $this->_stepperInfo['header'])
 			)
 		)."\n";
-		echo Html::tag('h3', array(), \Yii::t('sweelix', 'Step {n}', array('{n}' => $this->step )))."\n";
+		echo Html::tag('h3', array(), Yii::t('sweelix', 'Step {n}', array('{n}' => $this->step )))."\n";
 		echo Html::tag('ul',
 			array('id'=>'appMenu'),
 			Html::tag('li',array('class' =>  $this->_stepperInfo['class'].' selected'),
@@ -90,11 +93,11 @@ class MenuStepper extends \CWidget {
 				$url = array( 'step'.$i, $this->elementKey=>$this->elementId);
 			}
 			echo Html::tag('li',array(),Html::link(
-				\Yii::t('sweelix', 'Step {n}', array('{n}' => $i )),
+				Yii::t('sweelix', 'Step {n}', array('{n}' => $i )),
 				$url,
 				array(
 					'class' => ($i==$this->step)?'selected':'',
-					'title' => \Yii::t('sweelix', 'Step {n}', array('{n}' => $i )),
+					'title' => Yii::t('sweelix', 'Step {n}', array('{n}' => $i )),
 				)
 			))."\n";
 		}
@@ -102,9 +105,9 @@ class MenuStepper extends \CWidget {
 			echo Html::tag('li',array(),Html::tag('span',
 				array(
 					'class' => ($i==$this->step)?'selected':'',
-					'title' => \Yii::t('sweelix', 'Step {n}', array('{n}' => $i )),
+					'title' => Yii::t('sweelix', 'Step {n}', array('{n}' => $i )),
 				),
-				\Yii::t('sweelix', 'Step {n}', array('{n}' => $i ))
+				Yii::t('sweelix', 'Step {n}', array('{n}' => $i ))
 			))."\n";
 		}
 		echo Html::closeTag('ul');

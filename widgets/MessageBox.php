@@ -14,7 +14,10 @@
  */
 
 namespace sweelix\yii1\admin\core\widgets;
+
 use sweelix\yii1\web\helpers\Html;
+use CWidget;
+use Yii;
 
 /**
  * Class MessageBox
@@ -27,7 +30,7 @@ use sweelix\yii1\web\helpers\Html;
  * @category  widgets
  * @package   sweelix.yii1.admin.core.widgets
  */
-class MessageBox extends \CWidget {
+class MessageBox extends CWidget {
 	public $message;
 	public $type = 'info';
 	public $objects;
@@ -41,7 +44,7 @@ class MessageBox extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		ob_start();
 		if($this->objects !== null) {
 			if(is_array($this->objects) === false) {
@@ -70,7 +73,7 @@ class MessageBox extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		$content=ob_get_contents();
 		ob_end_clean();
 		if(strlen($content) > 0) {
@@ -84,30 +87,30 @@ class MessageBox extends \CWidget {
 			$message = array(
 				'type' => $this->type,
 				'message' => $this->message,
-				'close' => \Yii::t('sweelix', 'Close')
+				'close' => Yii::t('sweelix', 'Close')
 			);
 			switch($this->type) {
 				case 'valid' :
-					$message['title'] = \Yii::t('sweelix', 'Confirmation');
+					$message['title'] = Yii::t('sweelix', 'Confirmation');
 					break;
 				case 'warning' :
-					$message['title'] = \Yii::t('sweelix', 'Warning');
+					$message['title'] = Yii::t('sweelix', 'Warning');
 					break;
 				case 'error' :
-					$message['title'] = \Yii::t('sweelix', 'Error');
+					$message['title'] = Yii::t('sweelix', 'Error');
 					break;
 				case 'info' :
-					$message['title'] = \Yii::t('sweelix', 'Information');
+					$message['title'] = Yii::t('sweelix', 'Information');
 					break;
 			}
 			$js = Html::raiseEvent('showMessageBox', array(
 					'type' => $this->type,
 					'message' => $this->message,
 			));
-			if(\Yii::app()->getRequest()->isAjaxRequest === false) {
-				\Yii::app()->getClientScript()->registerSweelixScript('callback');
+			if(Yii::app()->getRequest()->isAjaxRequest === false) {
+				Yii::app()->getClientScript()->registerSweelixScript('callback');
 				if($this->displayMessage === true)
-					\Yii::app()->getClientScript()->registerScript('messageBoxDetail', $js);
+					Yii::app()->getClientScript()->registerScript('messageBoxDetail', $js);
 			} else {
 				if($this->displayMessage === true)
 					echo Html::script($js);

@@ -15,6 +15,10 @@
 
 namespace sweelix\yii1\admin\core\widgets;
 
+use CWidget;
+use CMap;
+use Yii;
+
 /**
  * Class Breadcrumb
  *
@@ -26,11 +30,11 @@ namespace sweelix\yii1\admin\core\widgets;
  * @category  widgets
  * @package   sweelix.yii1.admin.core.widgets
  */
-class Breadcrumb extends \CWidget {
+class Breadcrumb extends CWidget {
 
 	public $icon='icon-compass';
 	public $elements;
-	public $htmlOptions=[];
+	public $htmlOptions=array();
 
 	/**
 	 * Init widget
@@ -40,7 +44,7 @@ class Breadcrumb extends \CWidget {
 	 * @since  2.0.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		ob_start();
 	}
 
@@ -52,27 +56,27 @@ class Breadcrumb extends \CWidget {
 	 * @since  2.0.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		$content = ob_get_contents();
 		ob_end_clean();
 		if($this->elements === null) {
 			echo $content;
 		} else {
 			$this->htmlOptions['id'] = $this->getId();
-			$elements = [];
+			$elements = array();
 			foreach($this->elements as $element) {
-				if(is_string($element)) $element = ['content' => $element];
-				$elements[] = \CMap::mergeArray([
+				if(is_string($element)) $element = array('content' => $element);
+				$elements[] = CMap::mergeArray(array(
 					'content' => '',
-					'htmlOptions' => []
-				], $element);
+					'htmlOptions' => array()
+                ), $element);
 			}
 
-			$this->render('breadcrumb', [
+			$this->render('breadcrumb', array(
 				'htmlOptions' => $this->htmlOptions,
 				'elements' => $elements,
 				'icon' => $this->icon,
-			]);
+            ));
 		}
 	}
 }

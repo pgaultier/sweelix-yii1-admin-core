@@ -15,6 +15,9 @@
 
 namespace sweelix\yii1\admin\core\widgets;
 
+use CWidget;
+use Yii;
+
 /**
  * Class Header
  *
@@ -26,7 +29,7 @@ namespace sweelix\yii1\admin\core\widgets;
  * @category  widgets
  * @package   sweelix.yii1.admin.core.widgets
  */
-class Header extends \CWidget {
+class Header extends CWidget {
 
 	/**
 	 * Init widget
@@ -36,7 +39,7 @@ class Header extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		ob_start();
 	}
 
@@ -48,10 +51,10 @@ class Header extends \CWidget {
 	 * @since  1.2.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		$content = ob_get_contents();
 		ob_end_clean();
-		if(\Yii::app()->user->isGuest === true) {
+		if(Yii::app()->user->isGuest === true) {
 			echo $content;
 		} else {
 			$this->render('header');

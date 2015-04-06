@@ -15,6 +15,9 @@
 
 namespace sweelix\yii1\admin\core\widgets;
 
+use CWidget;
+use Yii;
+
 /**
  * Class Table
  *
@@ -26,7 +29,7 @@ namespace sweelix\yii1\admin\core\widgets;
  * @category  widgets
  * @package   sweelix.yii1.admin.core.widgets
  */
-class Table extends \CWidget {
+class Table extends CWidget {
 
 	private $_moduleName;
 	/**
@@ -92,7 +95,7 @@ class Table extends \CWidget {
 	 * @since  2.0.0
 	 */
 	public function init() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		ob_start();
 	}
 
@@ -104,7 +107,7 @@ class Table extends \CWidget {
 	 * @since  2.0.0
 	 */
 	public function run() {
-		\Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
+		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.widgets');
 		$contents=ob_get_contents();
 		ob_end_clean();
 		if($this->activeDataProvider === null) {
