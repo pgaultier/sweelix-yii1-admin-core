@@ -15,6 +15,9 @@
 
 namespace sweelix\yii1\admin\core\models;
 
+use CFormModel;
+use Yii;
+
 /**
  * Class Group
  *
@@ -28,48 +31,51 @@ namespace sweelix\yii1\admin\core\models;
  * @category  models
  * @package   sweelix.yii1.admin.core.models
  */
-class Group extends \CFormModel {
+class Group extends CFormModel
+{
 
-	/**
-	 * @var integer group id
-	 */
-	public $groupId;
+    /**
+     * @var integer group id
+     */
+    public $groupId;
 
-	/**
-	 * @var integer group id
-	 */
-	public $targetGroupId;
+    /**
+     * @var integer group id
+     */
+    public $targetGroupId;
 
-	/**
-	 * @var boolean check if group is selected
-	 */
-	public $selected;
+    /**
+     * @var boolean check if group is selected
+     */
+    public $selected;
 
-	/**
-	 * Business rules
-	 *
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules() {
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('selected, targetGroupId', 'required', 'on'=>'deleteGroup'),
-			array('selected', 'boolean', 'on'=>'deleteGroup'),
-			array('selected', 'compare', 'compareValue'=>true, 'on'=>'deleteGroup'),
-		);
-	}
+    /**
+     * Business rules
+     *
+     * @return array validation rules for model attributes.
+     */
+    public function rules()
+    {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
+            array('selected, targetGroupId', 'required', 'on' => 'deleteGroup'),
+            array('selected', 'boolean', 'on' => 'deleteGroup'),
+            array('selected', 'compare', 'compareValue' => true, 'on' => 'deleteGroup'),
+        );
+    }
 
-	/**
-	 * Define attributes
-	 *
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels() {
-		return array(
-			'groupId' => \Yii::t('sweelix', 'Group'),
-			'targetGroupId' => \Yii::t('sweelix', 'Target group id'),
-			'selected' => \Yii::t('sweelix', 'Selected'),
-		);
-	}
+    /**
+     * Define attributes
+     *
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels()
+    {
+        return array(
+            'groupId' => Yii::t('sweelix', 'Group'),
+            'targetGroupId' => Yii::t('sweelix', 'Target group id'),
+            'selected' => Yii::t('sweelix', 'Selected'),
+        );
+    }
 }
