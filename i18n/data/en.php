@@ -15,18 +15,18 @@
  * @package   sweelix.yii1.admin.core.i18n
  */
 return CMap::mergeArray(
-	require(Yii::getPathOfAlias('system.i18n.data').DIRECTORY_SEPARATOR.basename(__FILE__)),
-	array(
-		'dateFormats' =>
-		array (
-			'full' => 'EEEE, MMMM d, y',
-			'jui_full' => 'DD d MM yy',
-			'long' => 'MMMM d, y',
-			'jui_long' => 'd MM yy',
-			'medium' => 'MMM d, y',
-			'jui_medium' => 'd M yy',
-			'short' => 'M/d/yyyy',
-			'jui_short' => 'm/d/yy',
-		)
-	)
+    require(Yii::getPathOfAlias('system.i18n.data') . DIRECTORY_SEPARATOR . basename(__FILE__)),
+    array(
+        'dateFormats' =>
+            array(
+                'full' => 'EEEE, MMMM d, y',
+                'jui_full' => 'DD d MM yy',
+                'long' => 'MMMM d, y',
+                'jui_long' => 'd MM yy',
+                'medium' => 'MMM d, y',
+                'jui_medium' => 'd M yy',
+                'short' => 'M/d/yyyy',
+                'jui_short' => 'm/d/yy',
+            )
+    )
 );

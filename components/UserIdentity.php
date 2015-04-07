@@ -17,6 +17,7 @@ namespace sweelix\yii1\admin\core\components;
 
 use sweelix\yii1\ext\entities\Author;
 use CDateTimeParser;
+use CLogger;
 use Exception;
 use Yii;
 
@@ -213,7 +214,8 @@ class UserIdentity extends \CComponent implements \IUserIdentity
                 $this->_id = $author->authorId;
                 $this->setState('firstName', $author->authorFirstname);
                 $this->setState('lastName', $author->authorLastname);
-                $this->setState('lastLogin',
+                $this->setState(
+                    'lastLogin',
                     Yii::app()->locale->dateFormatter->formatDateTime(
                         CDateTimeParser::parse($author->authorLastLogin, 'yyyy-MM-dd hh:mm:ss'),
                         'long',
@@ -227,8 +229,11 @@ class UserIdentity extends \CComponent implements \IUserIdentity
             }
             return $result;
         } catch (Exception $e) {
-            Yii::log('Error in ' . __METHOD__ . '():' . $e->getMessage(), \CLogger::LEVEL_ERROR,
-                'sweelix.yii1.admin.core.components');
+            Yii::log(
+                'Error in ' . __METHOD__ . '():' . $e->getMessage(),
+                CLogger::LEVEL_ERROR,
+                'sweelix.yii1.admin.core.components'
+            );
             throw $e;
         }
     }

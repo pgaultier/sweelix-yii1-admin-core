@@ -75,14 +75,17 @@ class GettextMessageSource extends CGettextMessageSource
                 $extensionCategory = substr($category, $pos + 1);
                 // First check if there's an extension registered for this class.
                 if (isset($this->extensionPaths[$extensionClass])) {
-                    $this->translationFiles[$category][$language] = Yii::getPathOfAlias($this->extensionPaths[$extensionClass]) . DIRECTORY_SEPARATOR . $language;
+                    $this->translationFiles[$category][$language] =
+                        Yii::getPathOfAlias($this->extensionPaths[$extensionClass]) . DIRECTORY_SEPARATOR . $language;
                 } else {
                     // No extension registered, need to find it.
                     $class = new ReflectionClass($extensionClass);
-                    $this->translationFiles[$category][$language] = dirname($class->getFileName()) . DIRECTORY_SEPARATOR . 'messages' . DIRECTORY_SEPARATOR . $language;
+                    $this->translationFiles[$category][$language] = dirname($class->getFileName()) .
+                        DIRECTORY_SEPARATOR . 'messages' . DIRECTORY_SEPARATOR . $language;
                 }
             } elseif (isset($this->extensionPaths[$category])) {
-                $this->translationFiles[$category][$language] = Yii::getPathOfAlias($this->extensionPaths[$category]) . DIRECTORY_SEPARATOR . $language;
+                $this->translationFiles[$category][$language] =
+                    Yii::getPathOfAlias($this->extensionPaths[$category]) . DIRECTORY_SEPARATOR . $language;
             } else {
                 $this->translationFiles[$category][$language] = $this->basePath . DIRECTORY_SEPARATOR . $language;
             }
@@ -105,7 +108,9 @@ class GettextMessageSource extends CGettextMessageSource
     protected function loadMessages($category, $language)
     {
         $messageFile = $this->getMessageFile($category, $language);
-        if ($this->cachingDuration > 0 && $this->cacheID !== false && ($cache = Yii::app()->getComponent($this->cacheID)) !== null) {
+        if ($this->cachingDuration > 0 && $this->cacheID !== false
+            && ($cache = Yii::app()->getComponent($this->cacheID)) !== null
+        ) {
             $key = self::CACHE_KEY_PREFIX . $messageFile;
             if (($data = $cache->get($key)) !== false) {
                 return unserialize($data);

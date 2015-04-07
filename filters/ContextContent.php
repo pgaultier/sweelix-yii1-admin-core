@@ -49,9 +49,13 @@ class ContextContent extends CFilter
         Yii::trace(__METHOD__ . '()', 'sweelix.yii1.admin.core.filters');
         $content = Content::model()->findByPk(Yii::app()->request->getParam('contentId', 0));
         if ($content === null) {
-            throw new CHttpException(404,
-                Yii::t('sweelix', 'Content {contentId} does not exists',
-                    array('{contentId}' => Yii::app()->request->getParam('contentId', 0)))
+            throw new CHttpException(
+                404,
+                Yii::t(
+                    'sweelix',
+                    'Content {contentId} does not exists',
+                    array('{contentId}' => Yii::app()->request->getParam('contentId', 0))
+                )
             );
         } else {
             $filterChain->controller->setCurrentContent($content);

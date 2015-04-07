@@ -144,8 +144,11 @@ class Author extends EntityAuthor
                 $this->addError('authorId', Yii::t('sweelix', 'Incorrect ID'));
             }
         } catch (Exception $e) {
-            Yii::log('Error in ' . __METHOD__ . '():' . $e->getMessage(), CLogger::LEVEL_ERROR,
-                'sweelix.yii1.admin.core.models');
+            Yii::log(
+                'Error in ' . __METHOD__ . '():' . $e->getMessage(),
+                CLogger::LEVEL_ERROR,
+                'sweelix.yii1.admin.core.models'
+            );
             throw $e;
         }
     }
@@ -166,20 +169,23 @@ class Author extends EntityAuthor
             $this->_identity = new UserIdentity($this->authorEmail, $this->authorPassword);
             if ($this->_identity->authenticate() !== true) {
                 switch ($this->_identity->errorCode) {
-                    case UserIdentity::ERROR_PASSWORD_INVALID :
+                    case UserIdentity::ERROR_PASSWORD_INVALID:
                         $this->addError('authorPassword', Yii::t('sweelix', 'Incorrect password'));
                         break;
-                    case UserIdentity::ERROR_USERNAME_INVALID :
-                    case UserIdentity::ERROR_UNKNOWN_IDENTITY :
-                    default :
+                    case UserIdentity::ERROR_USERNAME_INVALID:
+                    case UserIdentity::ERROR_UNKNOWN_IDENTITY:
+                    default:
                         $this->addError('authorEmail', Yii::t('sweelix', 'Incorrect username'));
                         $this->addError('authorPassword', Yii::t('sweelix', 'Incorrect password'));
                         break;
                 }
             }
         } catch (Exception $e) {
-            Yii::log('Error in ' . __METHOD__ . '():' . $e->getMessage(), CLogger::LEVEL_ERROR,
-                'sweelix.yii1.admin.core.models');
+            Yii::log(
+                'Error in ' . __METHOD__ . '():' . $e->getMessage(),
+                CLogger::LEVEL_ERROR,
+                'sweelix.yii1.admin.core.models'
+            );
             throw $e;
         }
     }
@@ -203,6 +209,7 @@ class Author extends EntityAuthor
     {
         Yii::trace(__METHOD__ . '()', 'sweelix.yii1.admin.core.models');
         try {
+            //TODO: remove bad sha1 and replace it with correct password encryption system
             if (parent::beforeSave()) {
                 if ($this->isNewRecord) {
                     $this->authorPassword = sha1($this->authorPassword);
@@ -218,10 +225,12 @@ class Author extends EntityAuthor
                 return false;
             }
         } catch (Exception $e) {
-            Yii::log('Error in ' . __METHOD__ . '():' . $e->getMessage(), CLogger::LEVEL_ERROR,
-                'sweelix.yii1.admin.core.models');
+            Yii::log(
+                'Error in ' . __METHOD__ . '():' . $e->getMessage(),
+                CLogger::LEVEL_ERROR,
+                'sweelix.yii1.admin.core.models'
+            );
             throw $e;
-            return false;
         }
     }
 }

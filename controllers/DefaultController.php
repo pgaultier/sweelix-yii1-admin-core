@@ -59,8 +59,11 @@ class DefaultController extends Controller
                 $this->redirect(array('authentication/'));
             }
         } catch (Exception $e) {
-            Yii::log('Error in ' . __METHOD__ . '():' . $e->getMessage(), CLogger::LEVEL_ERROR,
-                'sweelix.yii1.admin.core.controllers');
+            Yii::log(
+                'Error in ' . __METHOD__ . '():' . $e->getMessage(),
+                CLogger::LEVEL_ERROR,
+                'sweelix.yii1.admin.core.controllers'
+            );
             throw $e;
         }
     }

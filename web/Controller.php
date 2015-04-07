@@ -35,121 +35,121 @@ use Yii;
  * @package   sweelix.yii1.admin.core.web
  * @since     2.0.0
  *
- * @property Content $currentContent
- * @property Node    $currentNode
- * @property Tag     $currentTag
- * @property Group   $currentGroup
+ * @property \sweelix\yii1\ext\entities\Content $currentContent
+ * @property \sweelix\yii1\ext\entities\Node    $currentNode
+ * @property \sweelix\yii1\ext\entities\Tag     $currentTag
+ * @property \sweelix\yii1\ext\entities\Group   $currentGroup
  */
 class Controller extends CController
 {
 
     /**
-     * @var Node current node in use
+     * @var \sweelix\yii1\ext\entities\Node current node in use
      */
-    private $_currentNode;
+    private $currentNode;
 
     /**
      * Define current node in use
      *
-     * @param Node $node node to set as default
+     * @param \sweelix\yii1\ext\entities\Node $node node to set as default
      *
      * @return void
      */
     public function setCurrentNode($node)
     {
-        $this->_currentNode = $node;
+        $this->currentNode = $node;
     }
 
     /**
      * Get current node in use
      *
-     * @return Node
+     * @return \sweelix\yii1\ext\entities\Node
      */
     public function getCurrentNode()
     {
-        return $this->_currentNode;
+        return $this->currentNode;
     }
 
 
     /**
-     * @var Content current content in use
+     * @var \sweelix\yii1\ext\entities\Content current content in use
      */
-    private $_currentContent;
+    private $currentContent;
 
     /**
      * Define current content in use
      *
-     * @param Content $content content to set as default
+     * @param \sweelix\yii1\ext\entities\Content $content content to set as default
      *
      * @return void
      */
     public function setCurrentContent($content)
     {
-        $this->_currentContent = $content;
+        $this->currentContent = $content;
     }
 
     /**
      * Get current content in use
      *
-     * @return Content
+     * @return \sweelix\yii1\ext\entities\Content
      */
     public function getCurrentContent()
     {
-        return $this->_currentContent;
+        return $this->currentContent;
     }
 
     /**
-     * @var Tag current content in use
+     * @var \sweelix\yii1\ext\entities\Tag current content in use
      */
-    private $_currentTag;
+    private $currentTag;
 
     /**
      * Define current tag in use
      *
-     * @param Tag $tag tag to set as default
+     * @param \sweelix\yii1\ext\entities\Tag $tag tag to set as default
      *
      * @return void
      */
     public function setCurrentTag($tag)
     {
-        $this->_currentTag = $tag;
+        $this->currentTag = $tag;
     }
 
     /**
      * Get current tag in use
      *
-     * @return Tag
+     * @return \sweelix\yii1\ext\entities\Tag
      */
     public function getCurrentTag()
     {
-        return $this->_currentTag;
+        return $this->currentTag;
     }
 
     /**
-     * @var Group current group in use
+     * @var \sweelix\yii1\ext\entities\Group current group in use
      */
-    private $_currentGroup;
+    private $currentGroup;
 
     /**
      * Define current group in use
      *
-     * @param Group $group group to set as default
+     * @param \sweelix\yii1\ext\entities\Group $group group to set as default
      *
      * @return void
      */
     public function setCurrentGroup($group)
     {
-        $this->_currentGroup = $group;
+        $this->currentGroup = $group;
     }
 
     /**
      * Get current group in use
      *
-     * @return Group
+     * @return \sweelix\yii1\ext\entities\Group
      */
     public function getCurrentGroup()
     {
-        return $this->_currentGroup;
+        return $this->currentGroup;
     }
 
     /**

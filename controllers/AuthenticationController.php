@@ -48,8 +48,11 @@ class AuthenticationController extends Controller
             Yii::trace(__METHOD__ . '()', 'sweelix.yii1.admin.core.controllers');
             $this->redirect(array('authentication/login'));
         } catch (Exception $e) {
-            Yii::log('Error in ' . __METHOD__ . '():' . $e->getMessage(), CLogger::LEVEL_ERROR,
-                'sweelix.yii1.admin.core.controllers');
+            Yii::log(
+                'Error in ' . __METHOD__ . '():' . $e->getMessage(),
+                CLogger::LEVEL_ERROR,
+                'sweelix.yii1.admin.core.controllers'
+            );
             throw $e;
         }
 
@@ -71,7 +74,9 @@ class AuthenticationController extends Controller
                 $author->attributes = $_POST[\CHtml::modelName($author)];
                 if ($author->validate() === true) {
                     $webUser = Yii::app()->user;
-                    if (($webUser->allowAutoLogin === true) && (CPropertyValue::ensureBoolean($author->authorAutoLogin) === true)) {
+                    if (($webUser->allowAutoLogin === true)
+                        && (CPropertyValue::ensureBoolean($author->authorAutoLogin) === true)
+                    ) {
                         $webUser->login($author->identity, $this->getModule()->sessionLifeTime);
                     } else {
                         $webUser->login($author->identity);
@@ -86,8 +91,11 @@ class AuthenticationController extends Controller
                 $this->render('login', array('author' => $author));
             }
         } catch (Exception $e) {
-            Yii::log('Error in ' . __METHOD__ . '():' . $e->getMessage(), CLogger::LEVEL_ERROR,
-                'sweelix.yii1.admin.core.controllers');
+            Yii::log(
+                'Error in ' . __METHOD__ . '():' . $e->getMessage(),
+                CLogger::LEVEL_ERROR,
+                'sweelix.yii1.admin.core.controllers'
+            );
             throw $e;
         }
     }
@@ -106,8 +114,11 @@ class AuthenticationController extends Controller
             Yii::app()->user->setReturnUrl(null);
             $this->redirect(array('default/'));
         } catch (Exception $e) {
-            Yii::log('Error in ' . __METHOD__ . '():' . $e->getMessage(), CLogger::LEVEL_ERROR,
-                'sweelix.yii1.admin.core.controllers');
+            Yii::log(
+                'Error in ' . __METHOD__ . '():' . $e->getMessage(),
+                CLogger::LEVEL_ERROR,
+                'sweelix.yii1.admin.core.controllers'
+            );
             throw $e;
         }
     }

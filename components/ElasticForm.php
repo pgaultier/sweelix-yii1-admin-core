@@ -38,7 +38,7 @@ use Yii;
 class ElasticForm extends CComponent
 {
     /**
-     * @var The model associated with current form
+     * @var CModel The model associated with current form
      */
     private $parentModel;
 
@@ -65,7 +65,7 @@ class ElasticForm extends CComponent
     /**
      * @var array elements in the form
      */
-    private $_elements = array();
+    private $elements = array();
 
     /**
      * Constructor, create the dynamic form using
@@ -91,7 +91,7 @@ class ElasticForm extends CComponent
      */
     protected function addElement($elementConfig)
     {
-        $this->_elements[] = new ElasticFormElement($elementConfig, $this->parentModel);
+        $this->elements[] = new ElasticFormElement($elementConfig, $this->parentModel);
     }
 
     /**
@@ -133,7 +133,7 @@ class ElasticForm extends CComponent
     {
         $result = '';
         if ($this->renderingTemplate === false) {
-            foreach ($this->_elements as $el) {
+            foreach ($this->elements as $el) {
                 $result = $result . $el->render() . $this->separator;
             }
             if ($return === true) {
@@ -179,7 +179,7 @@ class ElasticForm extends CComponent
  * @package   sweelix.yii1.admin.core.components
  * @since     1.2.0
  */
-class ElasticFormElement extends \CComponent
+class ElasticFormElement extends CComponent
 {
     /**
      * Supported field types
@@ -199,15 +199,16 @@ class ElasticFormElement extends \CComponent
         'checkboxlist' => 'activeCheckBoxList',
         'radiolist' => 'activeRadioButtonList',
     );
-    private $_layout = "{label}<br/>{element} \n";
-    private $_label;
-    private $_element;
+
+    private $layout = "{label}<br/>{element} \n";
+    private $label;
+    private $element;
 
     /**
      * Create an element using the dynamic model and config array
      *
      * @param array $config configuration for current element
-     * @param ElasticModel $model model used to produce the form
+     * @param \sweelix\yii1\behaviors\ElasticModel $model model used to produce the form
      *
      * @return ElasticFormElement
      * @since  1.0.0
@@ -221,7 +222,7 @@ class ElasticFormElement extends \CComponent
      * Create an element using the dynamic model and config array
      *
      * @param array $config configuration for current element
-     * @param ElasticModel $model model used to produce the form
+     * @param \sweelix\yii1\behaviors\ElasticModel $model model used to produce the form
      *
      * @return void
      * @since  1.0.0
@@ -235,7 +236,7 @@ class ElasticFormElement extends \CComponent
             $name = $config['name'];
             unset($config['name']);
             if (isset($config['layout']) === true) {
-                $this->_layout = $config['layout'];
+                $this->layout = $config['layout'];
                 unset($config['layout']);
             }
             $labelOptions = array();
@@ -243,18 +244,20 @@ class ElasticFormElement extends \CComponent
                 $labelOptions = $config['labelOptions'];
                 unset($config['labelOptions']);
             }
-            $this->_label = Html::activeLabel($model, $name, $labelOptions);
+            $this->label = Html::activeLabel($model, $name, $labelOptions);
 
             if (strpos($method, 'List') !== false) {
                 if (isset($config['listData']) === true) {
                     $listData = $config['listData'];
                     unset($config['listData']);
                 }
-                $this->_element = Html::$method($model, $name, $listData, $config);
+                $this->element = Html::$method($model, $name, $listData, $config);
             } else {
                 if ($method == 'activeAsyncFileUpload') {
                     if (Yii::app()->getRequest()->isAjaxRequest === false) {
-                        Yii::app()->getClientScript()->registerScriptFile(Yii::app()->getModule('sweeft')->getAssetsUrl() . '/js/jquery.sweeftloader.js');
+                        Yii::app()->getClientScript()->registerScriptFile(
+                            Yii::app()->getModule('sweeft')->getAssetsUrl() . '/js/jquery.sweeftloader.js'
+                        );
                     }
                     if (isset($config['config']['ui']) === false) {
                         $config['config']['ui'] = 'js:new SweeftUploader()';
@@ -279,7 +282,7 @@ class ElasticFormElement extends \CComponent
                         }
                     }
                 }
-                $this->_element = Html::$method($model, $name, $config);
+                $this->element = Html::$method($model, $name, $config);
             }
         }
     }
@@ -305,7 +308,7 @@ class ElasticFormElement extends \CComponent
      */
     public function render($return = true)
     {
-        $rendered = str_replace(array('{label}', '{element}'), array($this->_label, $this->_element), $this->_layout);
+        $rendered = str_replace(array('{label}', '{element}'), array($this->label, $this->element), $this->layout);
         if ($return === true) {
             return $rendered;
         } else {

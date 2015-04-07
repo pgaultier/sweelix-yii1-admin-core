@@ -49,9 +49,13 @@ class ContextTag extends CFilter
         Yii::trace(__METHOD__ . '()', 'sweelix.yii1.admin.core.filters');
         $tag = Tag::model()->findByPk(Yii::app()->request->getParam('tagId', 0));
         if ($tag === null) {
-            throw new CHttpException(404,
-                Yii::t('sweelix', 'Tag {tagId} does not exists',
-                    array('{tagId}' => Yii::app()->request->getParam('tagId', 0)))
+            throw new CHttpException(
+                404,
+                Yii::t(
+                    'sweelix',
+                    'Tag {tagId} does not exists',
+                    array('{tagId}' => Yii::app()->request->getParam('tagId', 0))
+                )
             );
         } else {
             $filterChain->controller->setCurrentTag($tag);
