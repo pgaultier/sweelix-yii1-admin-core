@@ -153,11 +153,22 @@
   MSG_CLASS        = "cleditorMsg",     // message popup div inside body
 
   // Test for ie
-  ie = $.browser.msie,
-  ie6 = /msie\s6/i.test(navigator.userAgent),
+  // ie = $.browser.msie,
+  // ie6 = /msie\s6/i.test(navigator.userAgent),
 
   // Test for iPhone/iTouch/iPad
-  iOS = /iphone|ipad|ipod/i.test(navigator.userAgent),
+  // iOS = /iphone|ipad|ipod/i.test(navigator.userAgent),
+
+  // Browser detection
+  ua = navigator.userAgent.toLowerCase(),
+  ie = /msie/.test(ua),
+  ie6 = /msie\s6/.test(ua),
+  // iege11 = /(trident)(?:.*rv:([\w.]+))?/.test(ua),
+  webkit = /webkit/.test(ua),
+  mozilla = /mozilla/.test(ua),
+
+  // Test for iPhone/iTouch/iPad
+  iOS = /iPhone|iPad|iPod/i.test(ua),
 
   // Popups are created once as needed and shared by all editor instances
   popups = {},
@@ -869,7 +880,7 @@
     }
 
     // Update the textarea when the iframe loses focus
-    ($.browser.mozilla ? $doc : $(contentWindow)).blur(function() {
+    (mozilla ? $doc : $(contentWindow)).blur(function() {
       updateTextArea(editor, true);
     });
 
@@ -917,7 +928,7 @@
   function refreshButtons(editor) {
 
     // Webkit requires focus before queryCommandEnabled will return anything but false
-    if (!iOS && $.browser.webkit && !editor.focused) {
+    if (!iOS && webkit && !editor.focused) {
       editor.$frame[0].contentWindow.focus();
       window.focus();
       editor.focused = true;
