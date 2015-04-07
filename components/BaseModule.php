@@ -13,7 +13,7 @@
  * @package   sweelix.yii1.admin.core.components
  */
 
-namespace sweelixYii1\admin\core\components;
+namespace sweelix\yii1\admin\core\components;
 
 use CWebModule;
 use Yii;
