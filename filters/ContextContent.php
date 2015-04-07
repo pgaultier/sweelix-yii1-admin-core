@@ -33,38 +33,41 @@ use Yii;
  * @category  filters
  * @package   sweelix.yii1.admin.core.filters
  */
-class ContextContent extends CFilter {
+class ContextContent extends CFilter
+{
 
-	/**
-	 * Check if current contentId is passed to the application
-	 *
-	 * @param CFilterChain $filterChain the current filter chain
-	 *
-	 * @return boolean
-	 * @since  1.2.0
-	 */
-	protected function preFilter($filterChain) {
-		Yii::trace(__METHOD__.'()', 'sweelix.yii1.admin.core.filters');
-		$content = Content::model()->findByPk(Yii::app()->request->getParam('contentId', 0));
-		if($content === null) {
-			throw new CHttpException(404,
-				Yii::t('sweelix', 'Content {contentId} does not exists',
-					array( '{contentId}'=>Yii::app()->request->getParam('contentId', 0)))
-				);
-		} else {
-			$filterChain->controller->setCurrentContent($content);
-			// logic being applied before the action is executed
-			return true;
-		}
-	}
+    /**
+     * Check if current contentId is passed to the application
+     *
+     * @param CFilterChain $filterChain the current filter chain
+     *
+     * @return boolean
+     * @since  1.2.0
+     */
+    protected function preFilter($filterChain)
+    {
+        Yii::trace(__METHOD__ . '()', 'sweelix.yii1.admin.core.filters');
+        $content = Content::model()->findByPk(Yii::app()->request->getParam('contentId', 0));
+        if ($content === null) {
+            throw new CHttpException(404,
+                Yii::t('sweelix', 'Content {contentId} does not exists',
+                    array('{contentId}' => Yii::app()->request->getParam('contentId', 0)))
+            );
+        } else {
+            $filterChain->controller->setCurrentContent($content);
+            // logic being applied before the action is executed
+            return true;
+        }
+    }
 
-	/**
-	 * No post filtering
-	 *
-	 * @param CFilterChain $filterChain the current filter chain
-	 *
-	 * @return void
-	 */
-	protected function postFilter($filterChain) {
-	}
+    /**
+     * No post filtering
+     *
+     * @param CFilterChain $filterChain the current filter chain
+     *
+     * @return void
+     */
+    protected function postFilter($filterChain)
+    {
+    }
 }

@@ -27,24 +27,24 @@ use sweelix\yii1\web\helpers\Html;
 
 /**
  * Case 1 : elementType in
- *     * text 		-> Html::activeTextField(...)
- *     * hidden		-> Html::activeHiddenField(...)
- *     * password 	-> Html::activePasswordField(...)
- *     * textarea 	-> Html::activeTextArea(...)
- *     * radio 		-> Html::activeRadioButton(...)
- *     * checkbox 	-> Html::activeCheckBox(...)
+ *     * text        -> Html::activeTextField(...)
+ *     * hidden        -> Html::activeHiddenField(...)
+ *     * password    -> Html::activePasswordField(...)
+ *     * textarea    -> Html::activeTextArea(...)
+ *     * radio        -> Html::activeRadioButton(...)
+ *     * checkbox    -> Html::activeCheckBox(...)
  *
- *	'elementId' => [
- *		'model' => [
- *			... model definition ...
- *		],
- *		'element' => array(
- *			'labelOptions' 	=>  array('label' => 'My label'),			// applied to label element
- *			'type'        	=> 'text', 									// stripped out
- *			'class' 		=> 'small', 								// applied to main element
- *			'layout' 		=> "{label}\n<br/>\n{element}\n<br/>\n", 	// stripped out
- *		),
- *	],
+ *    'elementId' => [
+ *        'model' => [
+ *            ... model definition ...
+ *        ],
+ *        'element' => array(
+ *            'labelOptions'    =>  array('label' => 'My label'),            // applied to label element
+ *            'type'            => 'text',                                    // stripped out
+ *            'class'        => 'small',                                // applied to main element
+ *            'layout'        => "{label}\n<br/>\n{element}\n<br/>\n",    // stripped out
+ *        ),
+ *    ],
  *
  *  in case of textarea, the class wysiwyg trigger the wysiwyg editor
  */
@@ -58,23 +58,23 @@ use sweelix\yii1\web\helpers\Html;
 <?php
 /**
  * Case 2 : elementType in
- *		* listbox 		-> Html::activeListBox(...)
- *		* dropdownlist 	-> Html::activeDropDownList(...)
- *		* checkboxlist 	-> Html::activeCheckBoxList(...)
- *		* radiolist 	-> Html::activeRadioButtonList(...)
+ *        * listbox        -> Html::activeListBox(...)
+ *        * dropdownlist    -> Html::activeDropDownList(...)
+ *        * checkboxlist    -> Html::activeCheckBoxList(...)
+ *        * radiolist    -> Html::activeRadioButtonList(...)
  *
- * 	'elementId' => array(
- *		'model' => array(
- *			... model definition ...
- *		),
- *		'element' => array(
- *			'labelOptions' 	=>  array('label' => 'My label'),			// applied to label element
- *			'type' 			=> 'dropdownlist', 							// stripped out
- *			'listData' 		=> array('element1', 'element2'),			// applied as listData
- *			'class' 		=> 'medium', 								// applied to main element
- *			'layout' 		=> "{label}\n<br/>\n{element}\n<br/>\n", 	// stripped out
- *		),
- *	),
+ *    'elementId' => array(
+ *        'model' => array(
+ *            ... model definition ...
+ *        ),
+ *        'element' => array(
+ *            'labelOptions'    =>  array('label' => 'My label'),            // applied to label element
+ *            'type'            => 'dropdownlist',                            // stripped out
+ *            'listData'        => array('element1', 'element2'),            // applied as listData
+ *            'class'        => 'medium',                                // applied to main element
+ *            'layout'        => "{label}\n<br/>\n{element}\n<br/>\n",    // stripped out
+ *        ),
+ *    ),
  *
  */
 ?>
@@ -88,28 +88,28 @@ use sweelix\yii1\web\helpers\Html;
 /**
  * Case 3 : elementType is asyncfile -> Html::activeAsyncFileUpload(...)
  *
- *	'picture' => array(
- *		'model' => array(
- *				... model definition ...
- *				'targetPathAlias' => 'webroot.resources.node-{nodeId}',
- *				'targetUrl' => 'resources/node-{nodeId}',
- *		),
- *		'element' => array(
- *			'labelOptions' 	=>  array('label' => 'My picture'),
- *			'type' 			=> 'asyncfile',
- *			'config' => array(
- *				'maxFileSize' 			=> '4mb',
- *				'multiSelection' 		=> false,
- *				'urlPreview' 			=> array(
- *					'asyncPreview',
- *					'targetPathAlias'	=> 'webroot.resources.node-{nodeId}',
- *					'width' 			=> 400,
- *					'height' 			=> 100,
- *				),
- *			),
- *			'layout' => "<h3>Visuel et description de la boutique</h3>{label}<br/>{element} <br/>\n",
- *		),
- *	),
+ *    'picture' => array(
+ *        'model' => array(
+ *                ... model definition ...
+ *                'targetPathAlias' => 'webroot.resources.node-{nodeId}',
+ *                'targetUrl' => 'resources/node-{nodeId}',
+ *        ),
+ *        'element' => array(
+ *            'labelOptions'    =>  array('label' => 'My picture'),
+ *            'type'            => 'asyncfile',
+ *            'config' => array(
+ *                'maxFileSize'            => '4mb',
+ *                'multiSelection'        => false,
+ *                'urlPreview'            => array(
+ *                    'asyncPreview',
+ *                    'targetPathAlias'    => 'webroot.resources.node-{nodeId}',
+ *                    'width'            => 400,
+ *                    'height'            => 100,
+ *                ),
+ *            ),
+ *            'layout' => "<h3>Visuel et description de la boutique</h3>{label}<br/>{element} <br/>\n",
+ *        ),
+ *    ),
  *
  */
 ?>
@@ -117,37 +117,35 @@ use sweelix\yii1\web\helpers\Html;
 <?php echo Html::activeLabel($model, 'picture', array('label' => 'My picture')); ?>
 <br/>
 <?php
-	// prepare file upload config because we are in special case with dynamic vars in path
-	$config = array(
-		'ui' 			=> 'js:new SweeftUploader()',
-		'auto' 			=> true,
-		'runtimes' 		=> 'html5, flash',
-		'urlPreview' 	=> array(
-			'asyncPreview',
-			'targetPathAlias' => 'webroot.resources.node-{nodeId}'
-		),
-	);
-	// prepare var expansion ({nodeId} <- this is usefull for previewing)
-	if($model instanceof sweelix\yii1\ext\entities\Content) {
-		$config['urlPreview']['nodeId'] = $model->nodeId;
-	} elseif($model instanceof sweelix\yii1\ext\entities\Node) {
-		$config['urlPreview']['nodeId'] = $model->nodeId;
-	}
-	// any var can be expanded
+// prepare file upload config because we are in special case with dynamic vars in path
+$config = array(
+    'ui' => 'js:new SweeftUploader()',
+    'auto' => true,
+    'runtimes' => 'html5, flash',
+    'urlPreview' => array(
+        'asyncPreview',
+        'targetPathAlias' => 'webroot.resources.node-{nodeId}'
+    ),
+);
+// prepare var expansion ({nodeId} <- this is usefull for previewing)
+if ($model instanceof sweelix\yii1\ext\entities\Content) {
+    $config['urlPreview']['nodeId'] = $model->nodeId;
+} elseif ($model instanceof sweelix\yii1\ext\entities\Node) {
+    $config['urlPreview']['nodeId'] = $model->nodeId;
+}
+// any var can be expanded
 ?>
 
 <?php echo Html::activeAsyncFileUpload($model, 'picture', array(
-	// 'class' => 'wysiwigimage', // allow the user to embed the image into a wysiwyg
-	'config' => array(
-		'ui' 			=> 'js:new SweeftUploader()',
-		'auto' 			=> true,
-		'runtimes' 		=> 'html5, flash',
-		'urlPreview' 	=> array(
-			'asyncPreview',
-			'targetPathAlias' => 'webroot.resources.node-{nodeId}'
-		),
-	)
+    // 'class' => 'wysiwigimage', // allow the user to embed the image into a wysiwyg
+    'config' => array(
+        'ui' => 'js:new SweeftUploader()',
+        'auto' => true,
+        'runtimes' => 'html5, flash',
+        'urlPreview' => array(
+            'asyncPreview',
+            'targetPathAlias' => 'webroot.resources.node-{nodeId}'
+        ),
+    )
 )); ?>
 <br/>
-
-
