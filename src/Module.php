@@ -245,6 +245,7 @@ class Module extends \CWebModule {
 		if($this->getEditor() == 'cleditor') {
 			\Yii::app()->getClientScript()->registerCssFile($this->getAssetsUrl().'/css/jquery.cleditor.css');
 			\Yii::app()->getClientScript()->registerScriptFile($this->getAssetsUrl().'/js/jquery.cleditor.js');
+			\Yii::app()->getClientScript()->registerScriptFile($this->getAssetsUrl().'/js/jquery.sweelix.inlineimage.cleditor.js');
 $js =<<<EOJS
 /**
  * Declare the wysiwyg editor to handle "data" parameters
@@ -263,14 +264,13 @@ EOJS;
 			\Yii::app()->getClientScript()->registerScript('cleditor', $js);
 		} elseif($this->getEditor() == 'ckeditor') {
 			\Yii::app()->getClientScript()->registerScriptFile($this->getAssetsUrl().'/js/ckeditor/ckeditor.js');
-			\Yii::app()->getClientScript()->registerScriptFile($this->getAssetsUrl().'/js/ckeditor/jquery.ckeditor.js');
 $js =<<<EOJS
 jQuery.fn.wysiwyg = function (params) {
 	return this.each(function () {
 		var data = jQuery(this).data('wysiwyg');
 		var finalData = {};
 		jQuery.extend(finalData, params, data);
-		jQuery(this).ckeditor(function(){}, finalData);
+		CKEDITOR.replace(this, finalData);
 	});
 };
 jQuery('body').on('beforeAjax', 'form', function(){jQuery('.wysiwyg').each(function(i, el){if (CKEDITOR.instances[jQuery(el).attr('id')]) {CKEDITOR.instances[jQuery(el).attr('id')].destroy();}});});
